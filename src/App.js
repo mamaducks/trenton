@@ -1,26 +1,66 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import { Route, Routes } from "react-router-dom";
+import { Home } from "./Pages/Home";
+// import "./App.css";
+import { HomeImagesCard } from "./Home/HomeImageCard/HomeImagesCard";
+import { Latest } from "./Home/Latest";
+import { Meetings } from "./Home/Meetings";
+import { FileView } from "./FileView";
 
-function App() {
+import AdapterDateFns from "@mui/lab/AdapterDateFns";
+import LocalizationProvider from "@mui/lab/LocalizationProvider";
+// import { ThemeProvider } from "@mui/material";
+import { BrowserRouter } from "react-router-dom";
+import { RecoilRoot } from "recoil";
+import { Footer } from "./Footer/Footer";
+import { InfoCardContainer, InfoCards } from "./PersonInfoCard";
+import { ElectedCards } from "./InfoCards/Elected";
+import { StewardCards } from "./InfoCards/Stewards";
+import { ContactForm } from "./Contact";
+import { ResponsiveAppBar, TrentonAppBar, TrentonMetroAppBar } from "./AppBar/TrentonAppBar";
+import { Resource } from "./Pages/Resource";
+import { StewardsCorner } from "./Pages/StewardsResource";
+// import "./App.css";
+// import { Router } from "./Router";
+// import theme from "./theme";
+
+export function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-          trenton
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // <ThemeProvider theme={theme}>
+    <LocalizationProvider dateAdapter={AdapterDateFns}>
+      <BrowserRouter>
+        <RecoilRoot>
+          {/* <Router /> */}
+
+          {/* <TrentonAppBar /> */}
+
+          {/* <TrentonMetroAppBar /> */}
+          <ResponsiveAppBar />
+          <Routes>
+            <Route path="/contact" element={<ContactForm />} />
+            <Route path="/resources" element={<Resource />} />
+
+            <Route path="/about/stewards" element={<StewardCards />} />
+            <Route path="/about/elected" element={<ElectedCards />} />
+            {/* <Route path="/posts" element={<AllProfiles />} /> */}
+            <Route path="/resources/stewards" element={<StewardsCorner />} />
+
+            <Route path="/" element={<Home />} />
+          </Routes>
+
+          {/* <HomeImagesCard />
+            <Latest />
+            <Meetings />
+            <InfoCardContainer>
+              <ElectedCards />
+            </InfoCardContainer>
+            <InfoCardContainer>
+              <StewardCards />
+            </InfoCardContainer> */}
+          <Footer />
+        </RecoilRoot>
+      </BrowserRouter>
+    </LocalizationProvider>
+    // </ThemeProvider>
   );
 }
-
-export default App;
