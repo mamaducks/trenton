@@ -19,20 +19,7 @@ const tabs = [
   { value: "about", link: "/about", label: "about us" },
   { value: "stewards", link: "/about/stewards", label: "stewards" },
   { value: "elected", link: "/about/elected", label: "elected" },
-
-  //  { value: "national", link: "/national" , label: "national"},
-
-  //  { value: "members", link: "/members" , label: "members"},
-
   { value: "contact", link: "/contact", label: "contact" },
-
-  //  { value: "login", link: "/login" , label: "login"},
-
-  //  { value: "bylaws", link: "/bylaws" , label: "bylaws"},
-
-  //  { value: "stewards", link: "/stewards" , label: "stewards corner"},
-
-  //  { value: "elected", link: "/elected" , label: "elected"},
 ];
 
 const pages = ["Contact", "Blog"];
@@ -41,6 +28,41 @@ const about = [
   { label: "Elected Officials", link: "/about/elected" },
   { label: "Stewards", link: "/about/stewards" },
 ];
+
+const members = [
+  {
+    id: "volunteer",
+    label: "Voluntary Benefits Plan",
+    link: "https://www.voluntarybenefitsplan.com/",
+  },
+  {
+    id: "scholarship",
+    label: "APWU Scholarship",
+    link: "https://www.apwu.org/scholarship-programs",
+  },
+  {
+    id: "auxillary",
+    label: "APWU Auxillary",
+    link: "https://www.apwuauxiliary.org/",
+  },
+  { id: "health", label: "APWU Health Plan", link: "https://www.apwuhp.com/" },
+  {
+    id: "benefits",
+    label: "APWU Accident Benefits",
+    link: "https://apw-aba.org/",
+  },
+];
+
+const national = [
+  { id: "apwu", label: "APWU.Org", link: "https://www.apwu.org/" },
+  {
+    id: "manuals",
+    label: "handbooks and manuals",
+    link: "https://www.apwu.org/usps-handbooks-and-manuals",
+  },
+  { id: "press", label: "postal press", link: "http://apwupostalpress.org/" },
+];
+
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 export const ResponsiveAppBar = () => {
@@ -84,20 +106,20 @@ export const ResponsiveAppBar = () => {
     setAnchorElAbout(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
+  const handleCloseNationMenu = () => {
+    setAnchorElNation(null);
   };
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
 
-  const handleCloseAboutMenu = () => {
-    setAnchorElAbout(null);
+  const handleCloseMembertMenu = () => {
+    setAnchorElMember(null);
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -108,19 +130,11 @@ export const ResponsiveAppBar = () => {
           >
             LOGO
           </Typography>
-          <Button
-            href="/"
-            sx={{ p: 0, color: "white" }}
-            endIcon={<KeyboardArrowDownIcon />}
-          >
+          <Button href="/" sx={{ p: 0, color: "white" }}>
             Logo
           </Button>
           <Box sx={{ flexGrow: 0 }}>
-            <Button
-              onClick={handleOpenAboutMenu}
-              sx={{ p: 0, color: "white" }}
-              endIcon={<KeyboardArrowDownIcon />}
-            >
+            <Button href="/about" sx={{ p: 0, color: "white" }}>
               About
             </Button>
             <Button
@@ -144,14 +158,16 @@ export const ResponsiveAppBar = () => {
                 horizontal: "right",
               }}
               open={Boolean(anchorElNation)}
-              onClose={handleClose}
+              onClose={handleCloseNationMenu}
             >
-              <MenuItem key="apwu">
-                <Link href="https://www.apwu.org/" target="_blank">
-                  APWU.Org
-                </Link>
-              </MenuItem>
-              <MenuItem key="apwuForms">
+              {national.map((item) => (
+                <MenuItem key={item.id}>
+                  <Link href={item.link} target="_blank">
+                    {item.label}
+                  </Link>
+                </MenuItem>
+              ))}
+              {/* <MenuItem key="apwuForms">
                 <Link
                   href="https://www.apwu.org/usps-handbooks-and-manuals"
                   target="_blank"
@@ -163,7 +179,7 @@ export const ResponsiveAppBar = () => {
                 <Link href="http://apwupostalpress.org/" target="_blank">
                   postal press
                 </Link>
-              </MenuItem>
+              </MenuItem> */}
             </Menu>
 
             <Button
@@ -187,49 +203,54 @@ export const ResponsiveAppBar = () => {
                 horizontal: "right",
               }}
               open={Boolean(anchorElMember)}
-              onClose={handleClose}
+              onClose={handleCloseMembertMenu}
             >
-              <MenuItem key="resource">
-                <Link href="/resources">Forms Links</Link>
-              </MenuItem>
-              <MenuItem key="apwuForms">
-                <Link href="" target="_blank">
-                  hs
+              {members.map((item) => (
+                 <MenuItem key={item.id}>
+                <Link href={item.link} underline="none" color="black">
+                  {item.label}
                 </Link>
               </MenuItem>
-              <MenuItem key="postPress">
-                <Link href="" target="_blank">
-                  posss
+              ))}
+             
+              {/* <MenuItem key="benefit">
+                <Link
+                  href="https://www.voluntarybenefitsplan.com/"
+                  target="_blank"
+                >
+                  Voluntary Benefits Plan
                 </Link>
               </MenuItem>
+              <MenuItem key="scholarship">
+                <Link
+                  href="https://www.apwu.org/scholarship-programs"
+                  target="_blank"
+                >
+                  APWU Scholarship
+                </Link>
+              </MenuItem>
+              <MenuItem key="auxillary">
+                <Link href="https://www.apwuauxiliary.org/" target="_blank">
+                  APWU Auxillary
+                </Link>
+              </MenuItem>
+              <MenuItem key="health">
+                <Link href="https://www.apwuhp.com/" target="_blank">
+                  APWU Health Plan
+                </Link>
+              </MenuItem>
+
+              <MenuItem key="health">
+                <Link href="https://apw-aba.org/" target="_blank">
+                  APWU Accident Benefits
+                </Link>
+              </MenuItem> */}
             </Menu>
 
             <Button sx={{ p: 0, color: "white" }} href="/contact">
               Contact
             </Button>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElAbout}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElAbout)}
-              onClose={handleClose}
-            >
-              <MenuItem key="elect">
-                <Link href="/about/elected">Elected Officials</Link>
-              </MenuItem>
-              <MenuItem key="steward">
-                <Link href="/about/stewards">Stewards</Link>
-              </MenuItem>
-            </Menu>
+
             <Button sx={{ p: 0, color: "white" }} href="/resources/stewards">
               Stewards Corner
             </Button>

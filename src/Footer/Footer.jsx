@@ -8,97 +8,123 @@ import {
   List,
   ListItem,
   ListItemText,
+  Stack,
+  ListItemIcon,
 } from "@mui/material";
 import { useRecoilValue } from "recoil";
 import { MailTo } from "../Social.jsx/MailTo";
-import { Social } from "../Social.jsx/SocialMedia";
+import { Social, SocialLink } from "../Social.jsx/SocialMedia";
 import { contact } from "../state/contact";
+import InfoIcon from "@mui/icons-material/Info";
+import HomeIcon from "@mui/icons-material/Home";
+import ContactSupportIcon from "@mui/icons-material/ContactSupport";
+import EmailIcon from "@mui/icons-material/Email";
 
 // import {FooterButtons} from './FooterButtons';
 // import {FooterRight} from './FooterRight';
 
 export const Footer = () => {
-    const address = useRecoilValue(contact); 
+  const address = useRecoilValue(contact);
   //   const isWide = useMediaQuery({
   //     query: '(min-device-width: 700px)',
   //   });
   return (
     <>
       <AppBar position="sticky" elevation={0}>
-        {/* <Box
-          display="flex"
-          alignItems="center"
-          flexWrap="wrap"
-          // alignContent="center"
-        > */}
+      
         <Grid container direction="row">
           <Grid item sm={4}>
             <Box textAlign="center" flex="auto" paddingTop="10px">
               <Typography
-                variant="subtitle1"
+                variant="h6"
                 paddingTop="8px"
                 paddingBottom="1px"
                 gutterBottom
               >
                 Trenton Metro Area Local
               </Typography>
-              {/* <Typography variant="subtitle2" lineHeight="1.4"> */}
 
-              <Social />
-              {/* </Typography> */}
+              <SocialLink />
             </Box>
           </Grid>
           <Grid item sm={4}>
-            <Box
-              // margin="5px"
-              display="flex"
-              flex="auto"
-              alignItems="center"
-              style={{ justifyContent: "center" }}
-            >
-              {/* {isWide && (
-              <img
-                alt=""
-                src={House}
-                width="165px"
-                maxHeight="100px"
-                style={{paddingInline: '5px'}}
-              />
-            )} */}
+        
+         
               <Box
                 display="flex"
-                style={{ flexDirection: "column", justifyContent: "center" }}
+                flexDirection="column"
+                textAlign="center" flex="auto" paddingTop="10px"
               >
-                QuickLinks
+                {/* <List> */}
+                  <Typography
+                    variant="h6"
+                    paddingTop="8px"
+                    paddingBottom="1px"
+                    gutterBottom
+                  >
+                    Quick Links
+                  </Typography>
 
+                  <ListItem>
+                    <ListItem>
+                      <ListItemIcon sx={{minWidth: "30px"}}>
+                        <HomeIcon />
+                      </ListItemIcon>
+                      <Link href="/" color="#fff">
+                        home
+                      </Link>
+                    </ListItem>
+                    <ListItem>
+                      <ListItemIcon sx={{minWidth: "30px"}}>
+                        <InfoIcon />
+                      </ListItemIcon>
+                      <Link href="/about" color="#fff">
+                        about
+                      </Link>
+                    </ListItem>
+                    <ListItem>
+                      <ListItemIcon sx={{minWidth: "30px"}}>
+                        <ContactSupportIcon />
+                      </ListItemIcon>
+                      <Link href="/contact" color="#fff">
+                        contact
+                      </Link>
+                    </ListItem>
 
-                <List>
-                  <ListItem>
-                      <Link href="home" color="#fff">home </Link>
+                    <ListItem>
+                      <ListItemIcon sx={{minWidth: "30px"}}>
+                        <EmailIcon />
+                      </ListItemIcon>
+                      <MailTo label="email"/>
+                      {/* <Link href="/contact" color="#fff">
+                        email
+                      </Link> */}
+                    </ListItem>
                   </ListItem>
-                  <ListItem>
-                      <Link href="about" color="#fff"> about</Link>
-                    
-                  </ListItem>
-                  <ListItem>
-                      <Link href="contact" color="#fff">contact</Link>
-                  </ListItem>
-                </List>
+                {/* </List> */}
               </Box>
-            </Box>
           </Grid>
           <Grid item sm={4}>
- <Box textAlign="center" flex="auto" paddingTop="10px">
-            <Typography variant="body1">Get In Touch</Typography>
-            <Typography variant="body1">{address.address}</Typography>
-            <Typography variant="body1">{address.city}</Typography>
+            <Box textAlign="center" flex="auto" paddingTop="10px">
+              <Typography
+                variant="h6"
+                paddingTop="8px"
+                paddingBottom="1px"
+                gutterBottom
+              >
+                Get In Touch{" "}
+              </Typography>
+              <Typography variant="body1">{address.address}</Typography>
+              <Typography variant="body1">{address.city}</Typography>
+              <Stack direction="row" justifyContent="center" gap={4}>
+                <Typography variant="body1">{address.phone}</Typography>
+                <Typography variant="body1">{address.fax}</Typography>
+              </Stack>
 
-            <Typography variant="body1">{address.phone}</Typography>
-            <Typography variant="body1">{address.fax}</Typography>
-            <Typography variant="body1"><MailTo label={address.email} /></Typography>
+              {/* <Typography variant="body1">
+                <MailTo label={address.email} />
+              </Typography> */}
             </Box>
-
-         
           </Grid>
         </Grid>
 

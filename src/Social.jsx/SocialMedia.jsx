@@ -1,9 +1,10 @@
 import { MailTo } from "./MailTo";
-import TwitterIcon from '@mui/icons-material/Twitter';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import { makeStyles } from '@mui/styles';
+import TwitterIcon from "@mui/icons-material/Twitter";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import { makeStyles } from "@mui/styles";
+import { ButtonBase, IconButton, Stack } from "@mui/material";
 
 const useStyles = makeStyles(({ spacing }) => ({
   social: {
@@ -18,31 +19,46 @@ const useStyles = makeStyles(({ spacing }) => ({
   },
 }));
 
-export function Social({ color, size, label, ...props }) {
+export function SocialLink({ color, size, label, ...props }) {
   const classes = useStyles();
 
   return (
-    <div className={classes.social} {...props}>
-      <a href="https://www.facebook.com/Home-Inspections-105580485123207/">
-        <FacebookIcon color="black" />
-      </a>
+    <Stack direction="row" justifyContent="center" {...props}>
+      <ButtonBase>
+        <IconButton
+          size="large"
+          href="https://www.facebook.com/Home-Inspections-105580485123207/"
+        >
+          <FacebookIcon color="black" fontSize="2em" />
+        </IconButton>
+      </ButtonBase>
 
-      <a
-        href="https://www.instagram.com/buyerbewarehomeinspections"
-        className="instagram social"
-      >
-        <InstagramIcon color="black" />
-      </a>
+      <ButtonBase>
+        <IconButton
+          size="large"
+          href="https://www.facebook.com/Home-Inspections-105580485123207/"
+        >
+          <InstagramIcon color="black" fontSize="larger" />
+        </IconButton>
+      </ButtonBase>
 
-      <a href="https://www.spectora.com/inspection-request/my-inspection-company-2f689b3a14">
-        <TwitterIcon color="black" />
-      </a>
+      <ButtonBase>
+        <IconButton
+          size="large"
+          href="https://www.facebook.com/Home-Inspections-105580485123207/"
+        >
+          <TwitterIcon color="black" fontSize="larger" />
+        </IconButton>
+      </ButtonBase>
 
-      <a href="https://www.spectora.com/inspection-request/my-inspection-company-2f689b3a14">
-        <LinkedInIcon color="black" />
-      </a>
-
-      {/* <MailTo color="black" /> */}
-    </div>
+      <ButtonBase>
+        <IconButton
+          size="large"
+          href="https://www.facebook.com/Home-Inspections-105580485123207/"
+        >
+          <LinkedInIcon color="black" fontSize="larger" />
+        </IconButton>
+      </ButtonBase>
+    </Stack>
   );
 }

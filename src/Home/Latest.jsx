@@ -8,11 +8,15 @@ import {
   ListItem,
   ListItemText,
   Divider,
+  Icon,
+  Stack,
 } from "@mui/material";
 import { useRecoilValue } from "recoil";
 import { FileView } from "../FileView";
 import { news } from "../state/news";
 import { posts } from "../state/posts";
+import DynamicFeedIcon from "@mui/icons-material/DynamicFeed";
+import AnnouncementIcon from "@mui/icons-material/Announcement";
 
 export function Latest() {
   const post = useRecoilValue(posts);
@@ -21,13 +25,17 @@ export function Latest() {
 
   return (
     <Grid container p={5} justifyContent="space-evenly">
-      {/* <Grid item sm={6} sx={{ display: "flex", justifyContent: "center" }}> */}
       <Card sx={{ minWidth: 400 }}>
         <CardContent>
           <List>
-            <Typography variant="h6" lineHeight={2} sx={{ textIndent: 12 }}>
-              Latest Posts
-            </Typography>
+            <Stack direction="row" alignItems="center">
+              <Icon>
+                <DynamicFeedIcon />
+              </Icon>
+              <Typography variant="h5" lineHeight={2} sx={{ textIndent: 12 }}>
+                Latest Posts
+              </Typography>
+            </Stack>
             <Divider sx={{ mb: 3 }} />
             {post.map((item) => (
               <ListItem disablePadding>
@@ -40,45 +48,46 @@ export function Latest() {
           </List>
         </CardContent>
       </Card>
-      {/* </Grid> */}
 
-      {/* <Grid item sm={6} alignSelf="center"> */}
       <Card sx={{ minWidth: 400, maxWidth: 600 }}>
         <CardContent>
           <List>
-            <Typography variant="h6" lineHeight={2} sx={{ textIndent: 12 }}>
-              Local News
-            </Typography>
+            <Stack direction="row" alignItems="center">
+              <Icon>
+                <AnnouncementIcon />
+              </Icon>
+              <Typography variant="h5" lineHeight={2} sx={{ textIndent: 12 }}>
+                Local News
+              </Typography>
+            </Stack>
             <Divider sx={{ mb: 3 }} />
             {currentNews.map((item) => (
               <>
-               <ListItem>
-              <ListItemText
-                primary={item.header}
-                primaryTypographyProps={{ fontSize: "large" }}
-              />
-            </ListItem>
-            <ListItem>
-              <ListItemText
-                primary={item.author}
-                secondary={item.date}
-                primaryTypographyProps={{ fontSize: "large" }}
-              />
-            </ListItem>
+                <ListItem>
+                  <ListItemText
+                    primary={item.header}
+                    primaryTypographyProps={{ fontSize: "large" }}
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemText
+                    primary={item.author}
+                    secondary={item.date}
+                    primaryTypographyProps={{ fontSize: "large" }}
+                  />
+                </ListItem>
 
-            <ListItem>
-              <ListItemText
-                primary={item?.desc}
-                primaryTypographyProps={{ fontSize: "large" }}
-              />
-            </ListItem>
+                <ListItem>
+                  <ListItemText
+                    primary={item?.desc}
+                    primaryTypographyProps={{ fontSize: "large" }}
+                  />
+                </ListItem>
               </>
             ))}
-           
           </List>
         </CardContent>
       </Card>
-      {/* </Grid> */}
     </Grid>
   );
 }

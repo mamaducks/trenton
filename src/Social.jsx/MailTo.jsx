@@ -1,4 +1,3 @@
-// import { FiMail } from "react-icons/fi";
 import EmailIcon from '@mui/icons-material/Email';
 
 export const MailTo = ({ label, icon, color, children, ...props }) => {
@@ -9,7 +8,6 @@ export const MailTo = ({ label, icon, color, children, ...props }) => {
 
     return (
       <a href={`mailto:${email}${params}`} {...props}>
-        {/* <EmailIcon color={color} /> */}
         {label}
       </a>
     );
@@ -17,7 +15,6 @@ export const MailTo = ({ label, icon, color, children, ...props }) => {
 
   return (
     <Mailto
-    //   email="stevenduckworthtmal@aol.com"
       email="scrubblies@gmail.com"
       subject="add subject"
       body="Enter the details of your message and contact information."

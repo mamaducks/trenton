@@ -17,16 +17,22 @@ import { InfoCardContainer, InfoCards } from "./PersonInfoCard";
 import { ElectedCards } from "./InfoCards/Elected";
 import { StewardCards } from "./InfoCards/Stewards";
 import { ContactForm } from "./Contact";
-import { ResponsiveAppBar, TrentonAppBar, TrentonMetroAppBar } from "./AppBar/TrentonAppBar";
+import {
+  ResponsiveAppBar,
+  TrentonAppBar,
+  TrentonMetroAppBar,
+} from "./AppBar/TrentonAppBar";
 import { Resource } from "./Pages/Resource";
 import { StewardsCorner } from "./Pages/StewardsResource";
+import { About } from "./Pages/About";
 // import "./App.css";
 // import { Router } from "./Router";
-// import theme from "./theme";
+import theme from "./theme";
+import { ThemeProvider } from "@mui/material";
 
 export function App() {
   return (
-    // <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <BrowserRouter>
         <RecoilRoot>
@@ -39,6 +45,7 @@ export function App() {
           <Routes>
             <Route path="/contact" element={<ContactForm />} />
             <Route path="/resources" element={<Resource />} />
+            <Route path="/about" element={<About />} />
 
             <Route path="/about/stewards" element={<StewardCards />} />
             <Route path="/about/elected" element={<ElectedCards />} />
@@ -47,20 +54,10 @@ export function App() {
 
             <Route path="/" element={<Home />} />
           </Routes>
-
-          {/* <HomeImagesCard />
-            <Latest />
-            <Meetings />
-            <InfoCardContainer>
-              <ElectedCards />
-            </InfoCardContainer>
-            <InfoCardContainer>
-              <StewardCards />
-            </InfoCardContainer> */}
           <Footer />
         </RecoilRoot>
       </BrowserRouter>
     </LocalizationProvider>
-    // </ThemeProvider>
+     </ThemeProvider>
   );
 }
