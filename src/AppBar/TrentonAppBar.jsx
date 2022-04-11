@@ -216,7 +216,7 @@ export const ResponsiveAppBar = () => {
 
           <Box sx={{ flexGrow: 0 }}>
             {/* <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}> */}
-              <Button sx={{ p: 0, color: "white" }} href="">
+              <Button sx={{ p: 0, color: "white" }} href="/login">
                 login
               </Button>
 

@@ -31,6 +31,7 @@ import theme from "./theme";
 import { ThemeProvider } from "@mui/material";
 import { Contact } from "./Pages/Contact";
 import { ChecklistTable } from "./ChecklistTimeLimit";
+import { LoginForm } from "./Pages/Login";
 
 export function App() {
   return (
@@ -54,7 +55,7 @@ export function App() {
             {/* <Route path="/posts" element={<AllProfiles />} /> */}
             <Route path="/resources/stewards" element={<StewardsCorner />} />
             <Route path="/resources/stewards/checklist" element={<ChecklistTable />} />
-
+            <Route path="/login" element={<LoginForm />} />
             <Route path="/" element={<Home />} />
           </Routes>
           <Footer />

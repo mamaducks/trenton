@@ -20,35 +20,35 @@ const useStyles = makeStyles(({ spacing }) => ({
 }));
 
 const social = [
-  {id: "face", icon: FacebookIcon, link: "https://www.facebook.com/Home-Inspections-105580485123207/"},
+  {
+    id: "face",
+    icon: FacebookIcon,
+    link: "https://www.facebook.com/Home-Inspections-105580485123207/",
+  },
   // {id: "", icon: "", link: ""},
   // {id: "", icon: "", link: ""},
 
   // {id: "", icon: "", link: ""},
+];
 
-]
-
-export function SocialLinkBroke() {
+export function SocialLinkBroke({ id, link, icon }) {
   return (
-    <Stack direction="row" justifyContent="center" >
-      {social.map((item) => (
-    <ButtonBase key={item.id}>
-        <IconButton
-          size="large"
-          href={item.link}
-          sx={{color: "white"}}
-          
-        >
-<Icon  icon={item.icon} sx={{color:"white" ,fontSize:"larger"}} />
- 
-         
-         
-          
-          {/* <FacebookIcon sx={{color:"white" ,fontSize:"larger"}}  /> */}
-        </IconButton>
-      </ButtonBase>
-        ))}
-      </Stack>
+    <ButtonBase key={id}>
+      <IconButton size="large" href={link} sx={{ color: "white" }}>
+        <Icon sx={{ color: "white", fontSize: "larger" }}>{icon}</Icon>
+      </IconButton>
+    </ButtonBase>
+  );
+}
+
+export function FooterSocial() {
+  return (
+    <Stack direction="row" justifyContent="center">
+      <SocialLinkBroke id="face" link="" icon={<FacebookIcon />} />
+      <SocialLinkBroke id="insta" link="" icon={<InstagramIcon />} />
+      <SocialLinkBroke id="twit" link="" icon={<TwitterIcon />} />
+      <SocialLinkBroke id="linked" link="" icon={<LinkedInIcon />} />
+    </Stack>
   );
 }
 
@@ -59,36 +59,23 @@ export function SocialLink({ color, size, label, ...props }) {
     <Stack direction="row" justifyContent="center" {...props}>
       {social.map((item) => (
         <ButtonBase key={item.id}>
-        <IconButton
-          size="large"
-          href={item.link}
-        >
-          <Icon icon={item.icon} sx={{color:"white" ,fontSize:"larger"}}/>
-            
-         
-          
-          <FacebookIcon sx={{color:"white" ,fontSize:"larger"}}  />
-        </IconButton>
-      </ButtonBase>
+          <IconButton size="large" href={item.link}>
+            <Icon
+              icon={item.icon}
+              sx={{ color: "white", fontSize: "larger" }}
+            />
+
+            <FacebookIcon sx={{ color: "white", fontSize: "larger" }} />
+          </IconButton>
+        </ButtonBase>
       ))}
-      
 
       <ButtonBase>
         <IconButton
           size="large"
           href="https://www.facebook.com/Home-Inspections-105580485123207/"
         >
-          <InstagramIcon sx={{color:"white" ,fontSize:"larger"}}  />
-        </IconButton>
-      </ButtonBase>
-
-      <ButtonBase>
-        <IconButton
-          size="large"
-          
-          href="https://www.facebook.com/Home-Inspections-105580485123207/"
-        >
-          <TwitterIcon sx={{color:"white" ,fontSize:"larger"}} />
+          <InstagramIcon sx={{ color: "white", fontSize: "larger" }} />
         </IconButton>
       </ButtonBase>
 
@@ -97,7 +84,16 @@ export function SocialLink({ color, size, label, ...props }) {
           size="large"
           href="https://www.facebook.com/Home-Inspections-105580485123207/"
         >
-          <LinkedInIcon sx={{color:"white" ,fontSize:"larger"}}  />
+          <TwitterIcon sx={{ color: "white", fontSize: "larger" }} />
+        </IconButton>
+      </ButtonBase>
+
+      <ButtonBase>
+        <IconButton
+          size="large"
+          href="https://www.facebook.com/Home-Inspections-105580485123207/"
+        >
+          <LinkedInIcon sx={{ color: "white", fontSize: "larger" }} />
         </IconButton>
       </ButtonBase>
     </Stack>

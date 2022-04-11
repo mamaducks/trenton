@@ -1,4 +1,5 @@
 import EmailIcon from '@mui/icons-material/Email';
+import { Link } from '@mui/material';
 
 export const MailTo = ({ label, icon, color, children, ...props }) => {
   const Mailto = ({ email, subject = "", body = "" }) => {
@@ -7,9 +8,9 @@ export const MailTo = ({ label, icon, color, children, ...props }) => {
     if (body) params += `${subject ? "&" : ""}body=${encodeURIComponent(body)}`;
 
     return (
-      <a href={`mailto:${email}${params}`} {...props} style={{color: {color}}}>
+      <Link href={`mailto:${email}${params}`} {...props} >
         {label}
-      </a>
+      </Link>
     );
   };
 
