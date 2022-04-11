@@ -1,13 +1,12 @@
-import ImageGallery from "react-image-gallery";
-import { Box, Grid, Card, CardMedia, Stack, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import bldg from "./bldg.png";
 import eagle from "./eagle.png";
 
 export function HomeImagesCard() {
   return (
     <>
-      <Grid container sx={{ bgcolor: "#62a9db",  }}>
-        <Grid item sm={7} sx={{ display: "flex", justifyContent: "flex-end"}}>
+      <Grid container sx={{ bgcolor: "#62a9db" }}>
+        <Grid item sm={7} sx={{ display: "flex", justifyContent: "flex-end" }}>
           <img
             alt="bldg"
             src={bldg}
@@ -31,7 +30,13 @@ export function HomeImagesCard() {
 
       <Grid container sx={{ bgcolor: "#d8a76e" }}>
         <Grid item sm={5} alignSelf="center">
-          <Typography variant="h5" px={20} maxWidth={580} textAlign="start" color="text.primary">
+          <Typography
+            variant="h5"
+            px={20}
+            maxWidth={580}
+            textAlign="start"
+            color="text.primary"
+          >
             The Trenton Metro Area Local represents over 500 members in the
             Clerk, Maintenance and Motor Vehicle Crafts in the Trenton New
             Jersey area. The majority of our members are employed at the Trenton

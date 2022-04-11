@@ -1,5 +1,4 @@
 import {
-  Box,
   Grid,
   Card,
   CardContent,
@@ -12,7 +11,6 @@ import {
   Stack,
 } from "@mui/material";
 import { useRecoilValue } from "recoil";
-import { FileView } from "../FileView";
 import { news } from "../state/news";
 import { posts } from "../state/posts";
 import DynamicFeedIcon from "@mui/icons-material/DynamicFeed";
@@ -25,7 +23,7 @@ export function Latest() {
 
   return (
     <Grid container p={5} justifyContent="center" gap={6}>
-      <Card sx={{ minWidth: 400, maxWidth: 640, px: 5  }}>
+      <Card sx={{ minWidth: 400, maxWidth: 640, px: 5 }}>
         <CardContent>
           <List>
             <Stack direction="row" alignItems="center">
@@ -36,12 +34,15 @@ export function Latest() {
                 Latest Posts
               </Typography>
             </Stack>
-            <Divider  />
+            <Divider />
             {post.map((item) => (
               <ListItem disablePadding>
                 <ListItemText
                   primary={item.title}
-                  primaryTypographyProps={{ fontSize: "large", color: "text.secondary" }}
+                  primaryTypographyProps={{
+                    fontSize: "large",
+                    color: "text.secondary",
+                  }}
                 />
               </ListItem>
             ))}
@@ -66,21 +67,32 @@ export function Latest() {
                 <ListItem>
                   <ListItemText
                     primary={item.header}
-                    primaryTypographyProps={{ fontSize: "large", fontWeight: "bold", color: "text.primary" }}
+                    primaryTypographyProps={{
+                      fontSize: "large",
+                      fontWeight: "bold",
+                      color: "text.primary",
+                    }}
                   />
                 </ListItem>
                 <ListItem>
                   <ListItemText
                     primary={item.author}
                     secondary={item.date}
-                    primaryTypographyProps={{ fontSize: "large", color: "text.secondary", fontWeight: 500 }}
+                    primaryTypographyProps={{
+                      fontSize: "large",
+                      color: "text.secondary",
+                      fontWeight: 500,
+                    }}
                   />
                 </ListItem>
 
                 <ListItem>
                   <ListItemText
                     primary={item?.desc}
-                    primaryTypographyProps={{ fontSize: "large", color: "text.primary" }}
+                    primaryTypographyProps={{
+                      fontSize: "large",
+                      color: "text.primary",
+                    }}
                   />
                 </ListItem>
               </>

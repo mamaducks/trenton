@@ -1,21 +1,9 @@
 import React, { useState } from "react";
-import clsx from "clsx";
 import {
-  Box,
   Button,
-  Card,
-  Container,
-  Divider,
   FormControl,
-  FormLabel,
-  FormHelperText,
-  Grid,
-  Input,
-  InputLabel,
   InputAdornment,
-  Paper,
   TextField,
-  Typography,
   Stack,
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
@@ -145,63 +133,61 @@ export function ContactForm({ localComments, setLocalComments }) {
 
   return (
     <div>
-        <Stack direction="row" gap={2} mt={4}>
-          <FormControl sx={{ flexGrow: 1 }} margin="dense">
-            <TextField
-            
-              id="input-with-icon-textfield"
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <AccountCircleIcon />
-                    Name
-                  </InputAdornment>
-                ),
-              }}
-              onChange={({ target: { value } }) =>
-                setFormData((current) => ({ ...current, name: value }))
-              }
-              value={name}
-            />
-          </FormControl>
-
-          <FormControl sx={{ flexGrow: 1 }} margin="dense">
-            <TextField
-              id="standard-start-adornment"
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <AlternateEmailIcon />
-                    Email Address
-                  </InputAdornment>
-                ),
-              }}
-              onChange={({ target: { value } }) =>
-                setFormData((current) => ({ ...current, email: value }))
-              }
-              value={email}
-            />
-          </FormControl>
-        </Stack>
-        <FormControl fullWidth margin="dense">
+      <Stack direction="row" gap={2} mt={4}>
+        <FormControl sx={{ flexGrow: 1 }} margin="dense">
           <TextField
-            id="outlined-multiline-static"
-            label="Message"
-            multiline
-
-            rows={4}
-            placeholder="Placeholder"
-            fullWidth
-            InputLabelProps={{
-              shrink: true,
+            id="input-with-icon-textfield"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <AccountCircleIcon />
+                  Name
+                </InputAdornment>
+              ),
             }}
-            variant="outlined"
             onChange={({ target: { value } }) =>
-              setFormData((current) => ({ ...current, comment: value }))
+              setFormData((current) => ({ ...current, name: value }))
             }
-            value={comment}
+            value={name}
           />
-          </FormControl>
+        </FormControl>
+
+        <FormControl sx={{ flexGrow: 1 }} margin="dense">
+          <TextField
+            id="standard-start-adornment"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <AlternateEmailIcon />
+                  Email Address
+                </InputAdornment>
+              ),
+            }}
+            onChange={({ target: { value } }) =>
+              setFormData((current) => ({ ...current, email: value }))
+            }
+            value={email}
+          />
+        </FormControl>
+      </Stack>
+      <FormControl fullWidth margin="dense">
+        <TextField
+          id="outlined-multiline-static"
+          label="Message"
+          multiline
+          rows={4}
+          placeholder="Placeholder"
+          fullWidth
+          InputLabelProps={{
+            shrink: true,
+          }}
+          variant="outlined"
+          onChange={({ target: { value } }) =>
+            setFormData((current) => ({ ...current, comment: value }))
+          }
+          value={comment}
+        />
+      </FormControl>
 
       <Button
         disabled={!name && !comment}
