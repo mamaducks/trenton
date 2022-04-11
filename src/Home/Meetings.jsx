@@ -1,10 +1,7 @@
 import {
-  Box,
   Grid,
   Card,
-  CardHeader,
   CardContent,
-  Container,
   Typography,
   List,
   ListItem,
@@ -12,12 +9,10 @@ import {
   Divider,
   Icon,
   Stack,
-  Paper,
 } from "@mui/material";
 import { useRecoilValue } from "recoil";
 import { MailTo } from "../Social.jsx/MailTo";
 import { meetings } from "../state/meetings";
-import GroupsIcon from "@mui/icons-material/Groups";
 import EventNoteIcon from "@mui/icons-material/EventNote";
 
 export function Meetings() {

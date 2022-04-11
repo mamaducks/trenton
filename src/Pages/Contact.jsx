@@ -1,33 +1,30 @@
-import { Container, Divider, Icon, Typography } from "@mui/material";
-import { useRecoilValue } from "recoil";
+import { Container, Divider, Icon, Stack, Typography } from "@mui/material";
 import { ContactForm } from "../Contact";
-import { contact } from "../state/contact";
+import NoteAltIcon from "@mui/icons-material/NoteAlt";
 
 export function Contact() {
-  const info = useRecoilValue(contact);
   return (
     <>
-      <Typography variant="h5" lineHeight={2} pt={5} textAlign="center">Get in Touch</Typography>
-      
+      <Stack
+        direction="row"
+        alignItems="center"
+        justifyContent="center"
+        gap={2}
+        py={3}
+      >
+        <Icon color="primary">
+          <NoteAltIcon />
+        </Icon>
+        <Typography variant="h5" textAlign="center" color="text.primary">
+          Contact Us
+        </Typography>
+      </Stack>
+
       <Container>
-<Divider />
-     
-      <ContactForm />
-      <Icon></Icon>
-      {/* <Typography>Address</Typography>
-      <Typography>
-        {info.address}
-        {info.city}
-      </Typography>
-      <Icon></Icon>
-      <Typography>phone</Typography>
-      <Typography>{info.phone}</Typography>
-      <Icon></Icon>
-      <Typography>fax</Typography>
-      <Typography>{info.fax}</Typography>
-      <Icon></Icon>
-      <Typography>Email</Typography>
-      <Typography>{info.email}</Typography> */}
+        <Divider />
+
+        <ContactForm />
+        <Icon></Icon>
       </Container>
     </>
   );

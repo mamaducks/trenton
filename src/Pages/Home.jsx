@@ -1,5 +1,4 @@
 import { Container } from "@mui/material";
-import { Footer } from "../Footer/Footer";
 import { BodyHome } from "../Home/BottomHome";
 import { HomeImagesCard } from "../Home/HomeImageCard/HomeImagesCard";
 import { Latest } from "../Home/Latest";

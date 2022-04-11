@@ -1,8 +1,6 @@
 import {
   Box,
   Button,
-  Tab,
-  Tabs,
   Link,
   Menu,
   MenuItem,
@@ -10,35 +8,25 @@ import {
   Stack,
 } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
-import { useState } from "react";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import * as React from "react";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Tooltip from "@mui/material/Tooltip";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import TMAL from "./logoTMAL.svg";
 
-// import routes from '../App/Routes';
 
-const tabs = [
-  { value: "home", link: "/", label: "home" },
-  { value: "about", link: "/about", label: "about us" },
-  { value: "stewards", link: "/about/stewards", label: "stewards" },
-  { value: "elected", link: "/about/elected", label: "elected" },
-  { value: "contact", link: "/contact", label: "contact" },
-];
-
-const pages = ["Contact", "Blog"];
-
-const about = [
-  { label: "Elected Officials", link: "/about/elected" },
-  { label: "Stewards", link: "/about/stewards" },
-];
+// const tabs = [
+//   { value: "home", link: "/", label: "home" },
+//   { value: "about", link: "/about", label: "about us" },
+//   { value: "stewards", link: "/about/stewards", label: "stewards" },
+//   { value: "elected", link: "/about/elected", label: "elected" },
+//   { value: "contact", link: "/contact", label: "contact" },
+// ];
 
 const members = [
   {
@@ -116,7 +104,7 @@ export const ResponsiveAppBar = () => {
   };
 
   const handleCloseByLaws = () => {
-    setAnchorElMember(null);
+    setAnchorElByLaws(null);
   };
 
   return (
@@ -215,48 +203,63 @@ export const ResponsiveAppBar = () => {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            {/* <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}> */}
-              <Button sx={{ p: 0, color: "white" }} href="/login">
-                login
-              </Button>
+            <Button sx={{ p: 0, color: "white" }} href="/login">
+              login
+            </Button>
 
-              <Button
-                sx={{ p: 0, color: "white" }}
-                onClick={handleOpenByLaws}
-                endIcon={<KeyboardArrowDownIcon />}
-              >
-                bylaws
-              </Button>
-              <Menu
-                sx={{ mt: "45px" }}
-                id="menu-appbar"
-                anchorEl={anchorElByLaws}
-                anchorOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
-                }}
-                open={Boolean(anchorElByLaws)}
-                onClose={handleCloseByLaws}
-              >
-                <MenuItem key="jcmi">
-                  <Link href="https://tmal1020.com/jcim-2020/">JCMI 2020</Link>
-                </MenuItem>
-                <MenuItem key="contract">
-                  <Link href="https://tmal1020.com/contract-articles/">Contract Arcticles</Link>
-                </MenuItem>
-                <MenuItem key="state">
-                  <Link href="https://tmal1020.com/state-by-laws/">State Bylaws</Link>
-                </MenuItem>
-                <MenuItem key="local">
-                  <Link href="https://tmal1020.com/local-by-laws-2/">Local Bylaws</Link>
-                </MenuItem>
-              </Menu>
-            {/* </Box> */}
+            <Button
+              sx={{ p: 0, color: "white" }}
+              onClick={handleOpenByLaws}
+              endIcon={<KeyboardArrowDownIcon />}
+            >
+              bylaws
+            </Button>
+            <Menu
+              sx={{ mt: "45px" }}
+              id="menu-appbar"
+              anchorEl={anchorElByLaws}
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              open={Boolean(anchorElByLaws)}
+              onClose={handleCloseByLaws}
+            >
+              <MenuItem key="jcmi">
+                <Link href="https://tmal1020.com/jcim-2020/" target="_blank">
+                  JCMI 2020
+                </Link>
+              </MenuItem>
+              <MenuItem key="contract">
+                <Link
+                  href="https://tmal1020.com/contract-articles/"
+                  target="_blank"
+                >
+                  Contract Arcticles
+                </Link>
+              </MenuItem>
+              <MenuItem key="state">
+                <Link
+                  href="https://tmal1020.com/state-by-laws/"
+                  target="_blank"
+                >
+                  State Bylaws
+                </Link>
+              </MenuItem>
+              <MenuItem key="local">
+                <Link
+                  href="https://tmal1020.com/local-by-laws-2/"
+                  target="_blank"
+                >
+                  Local Bylaws
+                </Link>
+              </MenuItem>
+            </Menu>
 
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>

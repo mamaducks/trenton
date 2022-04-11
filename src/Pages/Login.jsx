@@ -1,28 +1,23 @@
 import React, { useState } from "react";
-import clsx from "clsx";
 import {
-  Box,
   Button,
-  Card,
   Container,
   Divider,
   FormControl,
   FormLabel,
-  FormHelperText,
-  Grid,
-  Input,
-  InputLabel,
   InputAdornment,
-  Paper,
   TextField,
   Typography,
   Stack,
   Checkbox,
+  Icon,
+  FormControlLabel,
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
 import VisibilityIcon from "@mui/icons-material/Visibility";
+import LoginIcon from "@mui/icons-material/Login";
 
 // import { useLocalStorage } from "../useLocalStorage";
 
@@ -146,64 +141,84 @@ export function LoginForm({ localComments, setLocalComments }) {
   };
 
   return (
-    <Stack>
-        <FormLabel>Sign In</FormLabel>
-      <FormControl  margin="dense">
-        
-        <TextField
-          id="input-with-icon-textfield"
-          placeholder="Email or Username"
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <AccountCircleIcon />
-              </InputAdornment>
-            ),
-          }}
-          onChange={({ target: { value } }) =>
-            setFormData((current) => ({ ...current, name: value }))
-          }
-          value={name}
-        />
-      </FormControl>
-
-      <FormControl  margin="dense">
-        <TextField
-          id="standard-start-adornment"
-          placeholder="password"
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <AlternateEmailIcon />
-              </InputAdornment>
-            ),
-            endAdornment: (
-              <InputAdornment position="end">
-                <VisibilityIcon />
-              </InputAdornment>
-            ),
-          }}
-          onChange={({ target: { value } }) =>
-            setFormData((current) => ({ ...current, email: value }))
-          }
-          value={email}
-        />
-      </FormControl>
-
-      <FormControl>
-          <Checkbox />
-          <FormLabel>Remember Me</FormLabel>
-        
-      </FormControl>
-
-      <Button
-        disabled={!name && !comment}
-        className={classes.bottomButton}
-        onClick={onSubmit}
+    <Container>
+      <Stack
+        direction="row"
+        alignItems="center"
+        justifyContent="center"
+        gap={2}
+        py={3}
       >
-        Sign In
-      </Button>
-      <Typography variant="subtitle1">Forgot your password?</Typography>
-    </Stack>
+        <Icon color="primary">
+          <LoginIcon />
+        </Icon>
+        <Typography variant="h5" textAlign="center" color="text.primary">
+          Login
+        </Typography>
+      </Stack>
+      <Divider sx={{ mb: 7 }} />
+      <Stack>
+        <FormLabel>Sign In</FormLabel>
+        <FormControl margin="dense">
+          <TextField
+            id="input-with-icon-textfield"
+            placeholder="Email or Username"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <AccountCircleIcon />
+                </InputAdornment>
+              ),
+            }}
+            onChange={({ target: { value } }) =>
+              setFormData((current) => ({ ...current, name: value }))
+            }
+            value={name}
+          />
+        </FormControl>
+
+        <FormControl margin="dense">
+          <TextField
+            id="standard-start-adornment"
+            placeholder="password"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <AlternateEmailIcon />
+                </InputAdornment>
+              ),
+              endAdornment: (
+                <InputAdornment position="end">
+                  <VisibilityIcon />
+                </InputAdornment>
+              ),
+            }}
+            onChange={({ target: { value } }) =>
+              setFormData((current) => ({ ...current, email: value }))
+            }
+            value={email}
+          />
+        </FormControl>
+
+        <FormControlLabel
+          key="remember"
+          control={
+            <Checkbox type="checkbox" name="remember" onChange="" checked="" />
+          }
+          label="Remember Me"
+        />
+
+        <Button
+          disabled={!name && !comment}
+          className={classes.bottomButton}
+          onClick={onSubmit}
+        >
+          Sign In
+        </Button>
+        <Typography variant="subtitle1" textAlign="center" gutterBottom>
+          Forgot your password?
+        </Typography>
+      </Stack>
+    </Container>
   );
 }

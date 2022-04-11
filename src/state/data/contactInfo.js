@@ -1,4 +1,3 @@
-import EmailIcon from '@mui/icons-material/Email';
 
 
 export const contactData = {

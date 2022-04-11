@@ -6,9 +6,12 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { ElectedCards } from "../InfoCards/Elected";
 import { StewardCards } from "../InfoCards/Stewards";
-import GridViewIcon from "@mui/icons-material/GridView";
-import ViewListIcon from "@mui/icons-material/ViewList";
-import { Button, Divider, IconButton, Stack, Tooltip } from "@mui/material";
+import {
+  Button,
+  Container,
+  Divider,
+  Stack,
+} from "@mui/material";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { viewMode } from "../state/data/toggleView";
 
@@ -24,9 +27,8 @@ export function SimpleAccordion() {
           <Typography>Elected</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
+          <Typography variant="h5" lineHeight={2} pt={5} textAlign="center">
+            Elected Officials
           </Typography>
           <ElectedCards />
         </AccordionDetails>
@@ -40,9 +42,8 @@ export function SimpleAccordion() {
           <Typography>Stewards</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
+          <Typography variant="h5" lineHeight={2} pt={5} textAlign="center">
+            Our Stewards
           </Typography>
           <StewardCards />
         </AccordionDetails>
@@ -56,19 +57,22 @@ export function About() {
 
   return (
     <div>
-       <Typography variant="h5" lineHeight={2} pt={5} textAlign="center">
-        ABOUT US
-      </Typography>
-      <Divider variant="middle" />
-      <Typography variant="h6" textAlign="start" alignItems="start" px={10}>
-        The Trenton Metro Area
-        Local Represents over 500 members in the Clerk, Maintenance and Motor
-        Vehicle Crafts in the Trenton New Jersey area. The Majority of our
-        members are employed at the Trenton P&DC and its stations.
-      </Typography>
+      <Container maxWidth="xl">
+        <Typography variant="h5" lineHeight={2} pt={5} textAlign="center" color="text.primary">
+          ABOUT US
+        </Typography>
+        <Divider variant="middle" />
+        <Typography variant="h6" textAlign="start" alignItems="start" px={10} color="text.primary">
+          The Trenton Metro Area Local Represents over 500 members in the Clerk,
+          Maintenance and Motor Vehicle Crafts in the Trenton New Jersey area.
+          The Majority of our members are employed at the Trenton P&DC and its
+          stations.
+        </Typography>
+        <SimpleAccordion />
+      </Container>
+
       <ToggleButtons />
       {view ? <ElectedCards /> : <StewardCards />}
-      <SimpleAccordion />
     </div>
   );
 }
@@ -80,24 +84,24 @@ export default function ToggleButtons() {
     <>
       <Stack direction="row" gap={3} justifyContent="center" py={5}>
         <Button
-        size="large"
+          size="large"
           aria-label="elected view"
           sx={{
             borderRadius: "10px",
             border: "2px solid",
-            color: view ?   "#183884" : "#1e2f4d",
+            color: view ? "#183884" : "#1e2f4d",
           }}
           onClick={() => setView(true)}
         >
           Elected Officials
         </Button>
         <Button
-        size="large"
+          size="large"
           aria-label="steward view"
           sx={{
             borderRadius: "10px",
             border: "2px solid",
-            color: !view ?  "#183884" : "#1e2f4d",
+            color: !view ? "#183884" : "#1e2f4d",
           }}
           onClick={() => setView(false)}
         >

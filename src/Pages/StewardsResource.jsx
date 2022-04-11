@@ -2,13 +2,15 @@ import {
   Divider,
   List,
   ListItem,
-  Typography,
   Link,
   Stack,
   ListItemIcon,
   ListSubheader,
+  ListItemText,
 } from "@mui/material";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import ArticleIcon from "@mui/icons-material/Article";
 
 const grievance = [
   {
@@ -93,7 +95,23 @@ const checklist = [
 export function ResourceHeader({ title, children }) {
   return (
     <List>
-      <ListSubheader sx={{ fontSize: "larger" }}>{title}</ListSubheader>
+      <ListItem sx={{pb: 0}}>
+        <ListItemIcon sx={{ minWidth: 10, color: "#1e2f4d" }}>
+          <ArticleIcon />
+        </ListItemIcon>
+        <ListSubheader
+          sx={{
+            fontSize: "larger",
+            textDecoration: "underline",
+            color: "text.primary",
+            px: 3,
+          }}
+        >
+          {title}
+        </ListSubheader>
+      </ListItem>
+
+      {/* <Divider variant="middle" /> */}
       {children}
     </List>
   );
@@ -101,11 +119,11 @@ export function ResourceHeader({ title, children }) {
 
 export function ResourceList({ linkLabel, href }) {
   return (
-    <ListItem>
+    <ListItem sx={{maxWidth: 650}}>
       <ListItemIcon>
-        <ChevronRightIcon />
+        <ChevronRightIcon sx={{ color: "#183884" }} />
       </ListItemIcon>
-      <Link href={href} target="blank">
+      <Link href={href} target="_blank" fontSize="large" color="text.secondary" flexWrap="wrap">
         {linkLabel}
       </Link>
     </ListItem>
@@ -115,10 +133,17 @@ export function ResourceList({ linkLabel, href }) {
 export function StewardsCorner() {
   return (
     <div>
-      <Typography variant="h5" lineHeight={2} pt={5}>
-        Stewards Corner
-      </Typography>
-      <Divider />
+      <ListItem sx={{ pl: 30 }}>
+        <ListItemIcon sx={{ minWidth: 0, fontSize: "large", pr: 3 }}>
+          <ArrowForwardIosIcon color="primary" />
+        </ListItemIcon>
+        <ListItemText
+          primary="Stewards Corner"
+          primaryTypographyProps={{ fontSize: "2em", color: "text.primary" }}
+        />
+      </ListItem>
+
+      <Divider variant="middle" sx={{ mx: 10 }} />
       <Stack direction="row" justifyContent="space-evenly" flexWrap="wrap">
         <ResourceHeader title="GRIEVANCE FORMS">
           {grievance.map((item) => (
@@ -126,19 +151,25 @@ export function StewardsCorner() {
           ))}
         </ResourceHeader>
 
-        <ResourceHeader title="CONTRACT AND MANUAL">
+        <ResourceHeader title="CONTRACTS AND MANUALS">
           {contracts.map((item) => (
             <ResourceList linkLabel={item.linkLabel} href={item.href} />
           ))}
         </ResourceHeader>
-
+      </Stack>
+      <Stack
+        direction="row"
+        justifyContent="space-evenly"
+        flexWrap="wrap"
+        py={5}
+      >
         <ResourceHeader title="LINKS TO EMPLOYEE BENEFITS">
           {benefits.map((item) => (
             <ResourceList linkLabel={item.linkLabel} href={item.href} />
           ))}
         </ResourceHeader>
 
-        <ResourceHeader title="Checklists">
+        <ResourceHeader title="CHECKLISTS">
           {checklist.map((item) => (
             <ResourceList linkLabel={item.linkLabel} href={item.href} />
           ))}

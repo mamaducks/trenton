@@ -1,5 +1,8 @@
-import { Divider, Stack, Typography } from "@mui/material";
+import { Divider, ListItem, ListItemIcon, ListItemText, Stack } from "@mui/material";
 import { ResourceHeader, ResourceList } from "./StewardsResource";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+
+
 
 import { benefits } from "./StewardsResource";
 
@@ -119,40 +122,69 @@ const other = [
 export function FormLinks() {
   return (
     <div>
-      <Typography variant="h5" lineHeight={2} pt={5}>
+       <ListItem sx={{ pl: 30 }}>
+        <ListItemIcon sx={{ minWidth: 0, fontSize: "large", pr: 3 }}>
+          <ArrowForwardIosIcon color="primary" />
+        </ListItemIcon>
+        <ListItemText
+          primary=" Resources "
+          primaryTypographyProps={{ fontSize: "2em", color: "text.primary" }}
+        />
+      </ListItem>
+
+      <Divider variant="middle" sx={{ mx: 10 }} />
+
+{/* <Stack
+        direction="row"
+        alignItems="center"
+        justifyContent="center"
+        gap={2}
+        py={3}
+      >
+        <Icon color="primary" >
+          <ChevronRightIcon />
+        </Icon>
+        <Typography variant="h5" textAlign="center" color="text.primary">
+         Resources 
+        </Typography>
+      </Stack> */}
+
+      {/* <Typography variant="h5" lineHeight={2} pt={5}>
         SOME USEFUL FORMS FOR DOWNLOAD
-      </Typography>
-      <Divider />
-      <Stack direction="row" justifyContent="space-evenly" flexWrap="wrap">
-        <ResourceHeader title="Leave FORMS">
-          {leave.map((item) => (
-            <ResourceList linkLabel={item.linkLabel} href={item.href} />
-          ))}
-        </ResourceHeader>
-
-        <ResourceHeader title="FMLA FORMS">
-          {flma.map((item) => (
-            <ResourceList linkLabel={item.linkLabel} href={item.href} />
-          ))}
-        </ResourceHeader>
-
-        <ResourceHeader title="LINKS TO EMPLOYEE BENEFITS">
-          {benefits.map((item) => (
-            <ResourceList linkLabel={item.linkLabel} href={item.href} />
-          ))}
-        </ResourceHeader>
-
-        <ResourceHeader title="Postal LINKS">
-          {postal.map((item) => (
-            <ResourceList linkLabel={item.linkLabel} href={item.href} />
-          ))}
-        </ResourceHeader>
-
-        <ResourceHeader title="OTHER RESOURCES">
-          {other.map((item) => (
-            <ResourceList linkLabel={item.linkLabel} href={item.href} />
-          ))}
-        </ResourceHeader>
+      </Typography> */}
+      <Stack direction="row" justifyContent="space-evenly" flexWrap="wrap" pb={3}>
+        <div>
+          <ResourceHeader title="Leave FORMS">
+            {leave.map((item) => (
+              <ResourceList linkLabel={item.linkLabel} href={item.href} />
+            ))}
+          </ResourceHeader>
+          <br />
+          <ResourceHeader title="Postal LINKS">
+            {postal.map((item) => (
+              <ResourceList linkLabel={item.linkLabel} href={item.href} />
+            ))}
+          </ResourceHeader>
+          <br />
+          <ResourceHeader title="LINKS TO EMPLOYEE BENEFITS">
+            {benefits.map((item) => (
+              <ResourceList linkLabel={item.linkLabel} href={item.href} />
+            ))}
+          </ResourceHeader>
+        </div>
+        <div>
+          <ResourceHeader title="FMLA FORMS">
+            {flma.map((item) => (
+              <ResourceList linkLabel={item.linkLabel} href={item.href} />
+            ))}
+          </ResourceHeader>
+          <br />
+          <ResourceHeader title="OTHER RESOURCES">
+            {other.map((item) => (
+              <ResourceList linkLabel={item.linkLabel} href={item.href} />
+            ))}
+          </ResourceHeader>
+        </div>
       </Stack>
     </div>
   );

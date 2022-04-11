@@ -13,7 +13,6 @@ import {
 } from "@mui/material";
 import { useRecoilValue } from "recoil";
 import { MailTo } from "../Social.jsx/MailTo";
-import { FooterSocial, Social, SocialLink } from "../Social.jsx/SocialMedia";
 import { contact } from "../state/contact";
 import InfoIcon from "@mui/icons-material/Info";
 import HomeIcon from "@mui/icons-material/Home";
@@ -27,8 +26,7 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
 import FaxIcon from "@mui/icons-material/Fax";
-import { makeStyles } from "@mui/styles";
-import { ButtonBase, Icon, IconButton } from "@mui/material";
+import { ButtonBase, IconButton } from "@mui/material";
 
 // import {FooterButtons} from './FooterButtons';
 // import {FooterRight} from './FooterRight';
@@ -147,7 +145,12 @@ export const Footer = () => {
               alignItems="center"
               textAlign="center"
             >
-              <Typography variant="h6" paddingTop="8px" paddingBottom="1px" textAlign="center">
+              <Typography
+                variant="h6"
+                paddingTop="8px"
+                paddingBottom="1px"
+                textAlign="center"
+              >
                 Get In Touch{" "}
               </Typography>
               <List sx={{ textAlign: "center", pt: 0 }}>
