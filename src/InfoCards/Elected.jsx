@@ -7,6 +7,7 @@ export function ElectedCards() {
 
   return (
     <InfoCardContainer>
+ 
       {elect.map((item) => (
         <InfoCards
           name={item.name}
@@ -15,6 +16,7 @@ export function ElectedCards() {
           position={item.position}
         />
       ))}
+      
     </InfoCardContainer>
   );
 }

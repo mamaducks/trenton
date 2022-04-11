@@ -15,56 +15,57 @@ import {
   InputAdornment,
   Paper,
   TextField,
-  Typography
+  Typography,
+  Stack,
 } from "@mui/material";
-import { makeStyles } from '@mui/styles';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
+import { makeStyles } from "@mui/styles";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
 
 // import { useLocalStorage } from "../useLocalStorage";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
-    flexWrap: "wrap"
+    flexWrap: "wrap",
   },
-//   textField: {
-//     marginLeft: theme.spacing(1),
-//     marginRight: theme.spacing(1),
-//     width: "25ch"
-//   },
+  //   textField: {
+  //     marginLeft: theme.spacing(1),
+  //     marginRight: theme.spacing(1),
+  //     width: "25ch"
+  //   },
 
-//   margin: {
-//     margin: theme.spacing(1)
-//   },
-//   withoutLabel: {
-//     marginTop: theme.spacing(3)
-//   },
+  //   margin: {
+  //     margin: theme.spacing(1)
+  //   },
+  //   withoutLabel: {
+  //     marginTop: theme.spacing(3)
+  //   },
   outerBox: {
     boxSizing: "border-box",
-    padding: 12
+    padding: 12,
   },
 
   boxWidth: {
     display: "flex",
-    flexGrow: 4
+    flexGrow: 4,
   },
 
   gridBox: {
     root: {
       flexGrow: 1,
       justifyContent: "center",
-      alignItems: "center"
+      alignItems: "center",
     },
     paper: {
-    //   padding: theme.spacing(2),
+      //   padding: theme.spacing(2),
       textAlign: "center",
-    //   color: theme.palette.text.secondary
+      //   color: theme.palette.text.secondary
     },
     messageInputBox: {
       boxSizing: "border-box",
-      paddingRight: 24
-    }
+      paddingRight: 24,
+    },
   },
   buttonBox: {
     display: "flex",
@@ -72,7 +73,7 @@ const useStyles = makeStyles(theme => ({
     flexDirection: "center",
     justifyContent: "flex-end",
     alignContent: "flex-end",
-    width: "100%"
+    width: "100%",
   },
 
   commentsBox: {
@@ -80,13 +81,13 @@ const useStyles = makeStyles(theme => ({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    width: "100%"
+    width: "100%",
   },
 
   commentNameDate: {
     display: "flex",
     flexDirection: "row",
-    width: "100%"
+    width: "100%",
   },
 
   bottomButton: {
@@ -95,18 +96,18 @@ const useStyles = makeStyles(theme => ({
     flexDirection: "center",
     justifyContent: "center",
     alignContent: "center",
-    width: "100%"
+    width: "100%",
   },
 
   foot: {
-    padding: 35
-  }
+    padding: 35,
+  },
 }));
 
 const defaultFormData = {
   name: "",
   email: "",
-  comment: ""
+  comment: "",
 };
 
 function getFormattedDate(date) {
@@ -133,8 +134,8 @@ export function ContactForm({ localComments, setLocalComments }) {
         name: formData.name,
         email: formData.email,
         message: formData.comment,
-        date: getFormattedDate(new Date())
-      }
+        date: getFormattedDate(new Date()),
+      },
     ];
 
     setLocalComments(newComments);
@@ -144,72 +145,71 @@ export function ContactForm({ localComments, setLocalComments }) {
 
   return (
     <div>
-      <div>
-        <div className={classes.boxWidth}>
-          <TextField
-            className={classes.margin}
-            style={{ width: "50%" }}
-            id="input-with-icon-textfield"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <AccountCircleIcon />
-                  Name
-                </InputAdornment>
-              )
-            }}
-            onChange={({ target: { value } }) =>
-              setFormData(current => ({ ...current, name: value }))
-            }
-            value={name}
-          />
-          <TextField
-            style={{ width: "50%" }}
-            id="standard-start-adornment"
-            className={clsx(classes.margin, classes.textField)}
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <AlternateEmailIcon />
-                  Email Address
-                </InputAdornment>
-              )
-            }}
-            onChange={({ target: { value } }) =>
-              setFormData(current => ({ ...current, email: value }))
-            }
-            value={email}
-          />
-        </div>
-        <div className={classes.buttonBox}>
+        <Stack direction="row" gap={2} mt={4}>
+          <FormControl sx={{ flexGrow: 1 }} margin="dense">
+            <TextField
+            
+              id="input-with-icon-textfield"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <AccountCircleIcon />
+                    Name
+                  </InputAdornment>
+                ),
+              }}
+              onChange={({ target: { value } }) =>
+                setFormData((current) => ({ ...current, name: value }))
+              }
+              value={name}
+            />
+          </FormControl>
+
+          <FormControl sx={{ flexGrow: 1 }} margin="dense">
+            <TextField
+              id="standard-start-adornment"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <AlternateEmailIcon />
+                    Email Address
+                  </InputAdornment>
+                ),
+              }}
+              onChange={({ target: { value } }) =>
+                setFormData((current) => ({ ...current, email: value }))
+              }
+              value={email}
+            />
+          </FormControl>
+        </Stack>
+        <FormControl fullWidth margin="dense">
           <TextField
             id="outlined-multiline-static"
             label="Message"
             multiline
+
             rows={4}
-            style={{ margin: 8 }}
             placeholder="Placeholder"
             fullWidth
             InputLabelProps={{
-              shrink: true
+              shrink: true,
             }}
             variant="outlined"
             onChange={({ target: { value } }) =>
-              setFormData(current => ({ ...current, comment: value }))
+              setFormData((current) => ({ ...current, comment: value }))
             }
             value={comment}
           />
-        </div>
-      </div>
+          </FormControl>
 
       <Button
         disabled={!name && !comment}
         className={classes.bottomButton}
         onClick={onSubmit}
       >
-        leave comment
+        send message
       </Button>
     </div>
   );
 }
-

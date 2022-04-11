@@ -6,13 +6,13 @@ import eagle from "./eagle.png";
 export function HomeImagesCard() {
   return (
     <>
-      <Grid container sx={{ bgcolor: "#7aabc2" }}>
-        <Grid item sm={6} sx={{ display: "flex", justifyContent: "flex-end" }}>
+      <Grid container sx={{ bgcolor: "#62a9db",  }}>
+        <Grid item sm={7} sx={{ display: "flex", justifyContent: "flex-end"}}>
           <img
             alt="bldg"
             src={bldg}
-            width={750}
-            height="auto"
+            // width="auto"
+            // height={460}
             style={{
               // alignSelf: "flex-end",
               minWidth: 350,
@@ -22,15 +22,15 @@ export function HomeImagesCard() {
           />
         </Grid>
 
-        <Grid item sm={6} alignSelf="center">
+        <Grid item sm={5} alignSelf="center">
           <Typography textAlign="center" variant="h4">
             TRENTON METRO AREA LOCAL
           </Typography>
         </Grid>
       </Grid>
 
-      <Grid container sx={{ bgcolor: "#cab46e" }}>
-        <Grid item sm={6} alignSelf="center">
+      <Grid container sx={{ bgcolor: "#d8a76e" }}>
+        <Grid item sm={5} alignSelf="center">
           <Typography variant="h5" px={20} maxWidth={580} textAlign="start">
             The Trenton Metro Area Local represents over 500 members in the
             Clerk, Maintenance and Motor Vehicle Crafts in the Trenton New
@@ -41,14 +41,14 @@ export function HomeImagesCard() {
 
         <Grid
           item
-          sm={6}
+          sm={7}
           sx={{ display: "flex", justifyContent: "flex-start" }}
         >
           <img
             alt="bldg"
             src={eagle}
-            width={750}
-            height="auto"
+            // width="auto"
+            // height={460}
             style={{
               // alignSelf: "flex-start",
               minWidth: 350,

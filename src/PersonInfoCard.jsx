@@ -38,6 +38,8 @@ export function InfoCards({ name, email, position, title }) {
   );
   console.log(positionLabel);
   return (
+
+  
     <Card sx={{ minWidth: 375, m: 1 }}>
       <CardContent
         sx={{
@@ -53,7 +55,7 @@ export function InfoCards({ name, email, position, title }) {
               <ListItemText
                 primary={name}
                 primaryTypographyProps={{ fontSize: "22px" }}
-                secondaryTypographyProps={{ fontSize: "large" }}
+                secondaryTypographyProps={{ fontSize: "large", color: "#800001" }}
                 secondary={title}
                 sx={{ pl: 2 }}
               ></ListItemText>
@@ -68,5 +70,6 @@ export function InfoCards({ name, email, position, title }) {
         </List>
       </CardContent>
     </Card>
+  
   );
 }

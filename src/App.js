@@ -29,6 +29,8 @@ import { About } from "./Pages/About";
 // import { Router } from "./Router";
 import theme from "./theme";
 import { ThemeProvider } from "@mui/material";
+import { Contact } from "./Pages/Contact";
+import { ChecklistTable } from "./ChecklistTimeLimit";
 
 export function App() {
   return (
@@ -43,7 +45,7 @@ export function App() {
           {/* <TrentonMetroAppBar /> */}
           <ResponsiveAppBar />
           <Routes>
-            <Route path="/contact" element={<ContactForm />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="/resources" element={<Resource />} />
             <Route path="/about" element={<About />} />
 
@@ -51,6 +53,7 @@ export function App() {
             <Route path="/about/elected" element={<ElectedCards />} />
             {/* <Route path="/posts" element={<AllProfiles />} /> */}
             <Route path="/resources/stewards" element={<StewardsCorner />} />
+            <Route path="/resources/stewards/checklist" element={<ChecklistTable />} />
 
             <Route path="/" element={<Home />} />
           </Routes>

@@ -1,7 +1,16 @@
-import { Box, Button, Tab, Tabs, Link, Menu, MenuItem } from "@mui/material";
+import {
+  Box,
+  Button,
+  Tab,
+  Tabs,
+  Link,
+  Menu,
+  MenuItem,
+  ListItemIcon,
+} from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import { useState } from "react";
-
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import * as React from "react";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
@@ -30,6 +39,11 @@ const about = [
 ];
 
 const members = [
+  {
+    id: "forms",
+    label: "Forms and links",
+    link: "/resources",
+  },
   {
     id: "volunteer",
     label: "Voluntary Benefits Plan",
@@ -119,7 +133,7 @@ export const ResponsiveAppBar = () => {
   };
 
   return (
-    <AppBar position="static" >
+    <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -162,24 +176,14 @@ export const ResponsiveAppBar = () => {
             >
               {national.map((item) => (
                 <MenuItem key={item.id}>
+                  <ListItemIcon>
+                    <ChevronRightIcon />
+                  </ListItemIcon>
                   <Link href={item.link} target="_blank">
                     {item.label}
                   </Link>
                 </MenuItem>
               ))}
-              {/* <MenuItem key="apwuForms">
-                <Link
-                  href="https://www.apwu.org/usps-handbooks-and-manuals"
-                  target="_blank"
-                >
-                  handbooks and manuals
-                </Link>
-              </MenuItem>
-              <MenuItem key="postPress">
-                <Link href="http://apwupostalpress.org/" target="_blank">
-                  postal press
-                </Link>
-              </MenuItem> */}
             </Menu>
 
             <Button
@@ -206,45 +210,16 @@ export const ResponsiveAppBar = () => {
               onClose={handleCloseMembertMenu}
             >
               {members.map((item) => (
-                 <MenuItem key={item.id}>
-                <Link href={item.link} underline="none" color="black">
-                  {item.label}
-                </Link>
-              </MenuItem>
-              ))}
-             
-              {/* <MenuItem key="benefit">
-                <Link
-                  href="https://www.voluntarybenefitsplan.com/"
-                  target="_blank"
-                >
-                  Voluntary Benefits Plan
-                </Link>
-              </MenuItem>
-              <MenuItem key="scholarship">
-                <Link
-                  href="https://www.apwu.org/scholarship-programs"
-                  target="_blank"
-                >
-                  APWU Scholarship
-                </Link>
-              </MenuItem>
-              <MenuItem key="auxillary">
-                <Link href="https://www.apwuauxiliary.org/" target="_blank">
-                  APWU Auxillary
-                </Link>
-              </MenuItem>
-              <MenuItem key="health">
-                <Link href="https://www.apwuhp.com/" target="_blank">
-                  APWU Health Plan
-                </Link>
-              </MenuItem>
+                <MenuItem key={item.id}>
+                  <ListItemIcon>
+                    <ChevronRightIcon />
+                  </ListItemIcon>
 
-              <MenuItem key="health">
-                <Link href="https://apw-aba.org/" target="_blank">
-                  APWU Accident Benefits
-                </Link>
-              </MenuItem> */}
+                  <Link href={item.link} underline="none" color="black">
+                    {item.label}
+                  </Link>
+                </MenuItem>
+              ))}
             </Menu>
 
             <Button sx={{ p: 0, color: "white" }} href="/contact">

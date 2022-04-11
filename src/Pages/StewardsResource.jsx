@@ -1,73 +1,149 @@
-import { Divider, List, ListItem, Typography, Link } from "@mui/material";
+import {
+  Divider,
+  List,
+  ListItem,
+  Typography,
+  Link,
+  Stack,
+  ListItemIcon,
+  ListSubheader,
+} from "@mui/material";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+
+const grievance = [
+  {
+    linkLabel: "Request For Information Form (DOT)",
+    href: "https://tmal1020.com/stewards-forms/RFI-Blank.pdf",
+  },
+
+  {
+    linkLabel: "Step 1 Grievance Form",
+    href: "https://tmal1020.com/stewards-forms/step1grievance.pdf",
+  },
+  {
+    linkLabel: "Step 2 Grievance Appeal Form",
+    href: "https://tmal1020.com/stewards-forms/step2grievanceappeal.pdf",
+  },
+  {
+    linkLabel: "Step 2 Appeal Arbitration Form",
+    href: "https://tmal1020.com/stewards-forms/appealtoarbitrationfromstep2form.pdf",
+  },
+
+  {
+    linkLabel: "Step 3 Grievance Appeal Form",
+    href: "https://tmal1020.com/stewards-forms/step3grievanceappealform.pdf",
+  },
+  {
+    linkLabel: "Settlement Form With ID#",
+    href: "https://tmal1020.com/stewards-forms/Settlement-Form-With-ID.pdf",
+  },
+];
+
+const contracts = [
+  {
+    linkLabel: "JCIM - 2017 (PDF)",
+    href: "https://tmal1020.com/pdf-books/",
+  },
+
+  {
+    linkLabel: "Contract 2018-2021 (PDF)",
+    href: "https://tmal1020.com/pdf-books/",
+  },
+  {
+    linkLabel: "Local MOU (PDF)",
+    href: "https://tmal1020.com/pdf-books/",
+  },
+  {
+    linkLabel: "Stewards Training Manual (PDF)",
+    href: "https://tmal1020.com/pdf-books/",
+  },
+];
+
+export const benefits = [
+  {
+    linkLabel: 'FEHB “Federal Employee Health Benefit Plan"',
+    href: "https://www.opm.gov/healthcare-insurance/healthcare/",
+  },
+
+  {
+    linkLabel: "FEDVIP “Dental & Vision Plan”",
+    href: "https://www.opm.gov/healthcare-insurance/dental-vision/",
+  },
+  {
+    linkLabel: "FSA “Flexible Spending Accounts”",
+    href: "https://www.opm.gov/healthcare-insurance/flexible-spending-accounts/",
+  },
+  {
+    linkLabel: "FEGLI “Life Insurance”",
+    href: "https://www.opm.gov/healthcare-insurance/life-insurance/",
+  },
+  {
+    linkLabel: "FLTCIP “Long Term Care Insurance Program”",
+    href: "https://www.opm.gov/healthcare-insurance/long-term-care/",
+  },
+];
+
+const checklist = [
+  {
+    linkLabel: "Time Limits Checklist",
+    href: "/resources/stewards/checklist",
+  },
+];
+
+export function ResourceHeader({ title, children }) {
+  return (
+    <List>
+      <ListSubheader sx={{ fontSize: "larger" }}>{title}</ListSubheader>
+      {children}
+    </List>
+  );
+}
+
+export function ResourceList({ linkLabel, href }) {
+  return (
+    <ListItem>
+      <ListItemIcon>
+        <ChevronRightIcon />
+      </ListItemIcon>
+      <Link href={href} target="blank">
+        {linkLabel}
+      </Link>
+    </ListItem>
+  );
+}
 
 export function StewardsCorner() {
   return (
     <div>
-        <Typography>
-            Stewards Corner
-        </Typography>
-        <Divider/>
-      <Typography>GRIEVANCE FORMS</Typography>
-      <List>
-        <ListItem>
-          <Link>Request For Information Form (DOT)</Link>
-        </ListItem>
-        <ListItem>
-          <Link> Step 1 Grievance Form</Link>
-        </ListItem>
-        <ListItem>
-          <Link>Step 2 Grievance Appeal Form</Link>
-        </ListItem>
-        <ListItem>
-          <Link>Step 2 Appeal Arbitration Form </Link>
-        </ListItem>
-        <ListItem>
-          <Link> Step 3 Grievance Appeal Form </Link>
-        </ListItem>
-        <ListItem>
-          <Link> Settlement Form With ID#</Link>
-        </ListItem>
-      </List>
-      <Typography>CONTRACT AND MANUAL</Typography>
-      <List>
-        <ListItem>
-          <Link>JCIM - 2017 (PDF) </Link>
-        </ListItem>
-        <ListItem>
-          <Link> Contract 2018-2021 (PDF) </Link>
-        </ListItem>
-        <ListItem>
-          <Link> Local MOU (PDF)</Link>
-        </ListItem>
-        <ListItem>
-          <Link> Stewards Training Manual (PDF)</Link>
-        </ListItem>
-      </List>
-      <Typography>LINKS TO EMPLOYEE BENEFITS</Typography>
-      <List>
-        <ListItem>
-          <Link>FEHB “Federal Employee Health Benefit Plan” </Link>
-        </ListItem>
-        <ListItem>
-          <Link> FEDVIP “Dental & Vision Plan” </Link>
-        </ListItem>
-        <ListItem>
-          <Link>FSA “Flexible Spending Accounts”</Link>
-        </ListItem>
-        <ListItem>
-          <Link> FEGLI “Life Insurance”</Link>
-        </ListItem>
-        <ListItem>
-          <Link>FLTCIP “Long Term Care Insurance Program”</Link>
-        </ListItem>
-      </List>
+      <Typography variant="h5" lineHeight={2} pt={5}>
+        Stewards Corner
+      </Typography>
+      <Divider />
+      <Stack direction="row" justifyContent="space-evenly" flexWrap="wrap">
+        <ResourceHeader title="GRIEVANCE FORMS">
+          {grievance.map((item) => (
+            <ResourceList linkLabel={item.linkLabel} href={item.href} />
+          ))}
+        </ResourceHeader>
 
-      <Typography>CHECK LISTS</Typography>
-      <List>
-        <ListItem>
-          <Link>Time Limits Checklist</Link>
-        </ListItem>
-      </List>
+        <ResourceHeader title="CONTRACT AND MANUAL">
+          {contracts.map((item) => (
+            <ResourceList linkLabel={item.linkLabel} href={item.href} />
+          ))}
+        </ResourceHeader>
+
+        <ResourceHeader title="LINKS TO EMPLOYEE BENEFITS">
+          {benefits.map((item) => (
+            <ResourceList linkLabel={item.linkLabel} href={item.href} />
+          ))}
+        </ResourceHeader>
+
+        <ResourceHeader title="Checklists">
+          {checklist.map((item) => (
+            <ResourceList linkLabel={item.linkLabel} href={item.href} />
+          ))}
+        </ResourceHeader>
+      </Stack>
     </div>
   );
 }

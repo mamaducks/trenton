@@ -12,6 +12,7 @@ import {
   Divider,
   Icon,
   Stack,
+  Paper,
 } from "@mui/material";
 import { useRecoilValue } from "recoil";
 import { MailTo } from "../Social.jsx/MailTo";
@@ -24,9 +25,10 @@ export function Meetings() {
 
   console.log(meet);
   return (
-    <Grid container>
-      <Grid item sm={12} sx={{ display: "flex", justifyContent: "center" }}>
-        <Container>
+    <Grid container sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+      <Grid item sm={10} >
+        {/* <Container> */}
+          <Paper sx={{p: 4, }}>
           <Stack
             direction="row"
             alignItems="center"
@@ -34,13 +36,13 @@ export function Meetings() {
             justifyContent="center"
           >
             <Icon>
-              <EventNoteIcon />
+              <EventNoteIcon color="primary"/>
             </Icon>
-            <Typography variant="h5" lineHeight={2} textAlign="center">
+            <Typography variant="h5" lineHeight={2} textAlign="center" color="text.secondary">
               2022 Union Meeting Notices
             </Typography>
           </Stack>
-          <Divider sx={{ mb: 3 }} />
+          <Divider sx={{ mb: 3, borderColor: "#800001"  }} />
           <Typography variant="h6" textAlign="start" alignItems="start">
             The 2022 General Membership Union Meetings for the Trenton Metro
             Area Local will be held at the Hamilton Township VFW located at 77
@@ -65,7 +67,8 @@ export function Meetings() {
             at <MailTo label="stevenduckworthtmal@aol.com" /> with your name,
             tour and job title for an invite.
           </Typography>
-        </Container>
+          </Paper>
+        {/* </Container> */}
       </Grid>
     </Grid>
   );

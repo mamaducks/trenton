@@ -8,7 +8,7 @@ import { ElectedCards } from "../InfoCards/Elected";
 import { StewardCards } from "../InfoCards/Stewards";
 import GridViewIcon from "@mui/icons-material/GridView";
 import ViewListIcon from "@mui/icons-material/ViewList";
-import { Button, IconButton, Stack, Tooltip } from "@mui/material";
+import { Button, Divider, IconButton, Stack, Tooltip } from "@mui/material";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { viewMode } from "../state/data/toggleView";
 
@@ -56,10 +56,11 @@ export function About() {
 
   return (
     <div>
-      <Typography variant="h5" lineHeight={2} textAlign="center">
+       <Typography variant="h5" lineHeight={2} pt={5} textAlign="center">
         ABOUT US
       </Typography>
-      <Typography variant="h6" textAlign="start" alignItems="start" px={7}>
+      <Divider variant="middle" />
+      <Typography variant="h6" textAlign="start" alignItems="start" px={10}>
         The Trenton Metro Area
         Local Represents over 500 members in the Clerk, Maintenance and Motor
         Vehicle Crafts in the Trenton New Jersey area. The Majority of our
@@ -84,7 +85,7 @@ export default function ToggleButtons() {
           sx={{
             borderRadius: "10px",
             border: "2px solid",
-            color: view ? "#103964" : "#677e99",
+            color: view ?   "#183884" : "#1e2f4d",
           }}
           onClick={() => setView(true)}
         >
@@ -96,7 +97,7 @@ export default function ToggleButtons() {
           sx={{
             borderRadius: "10px",
             border: "2px solid",
-            color: !view ? "#103964" : "#677e99",
+            color: !view ?  "#183884" : "#1e2f4d",
           }}
           onClick={() => setView(false)}
         >

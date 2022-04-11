@@ -68,7 +68,7 @@ export const Footer = () => {
                   <ListItem>
                     <ListItem>
                       <ListItemIcon sx={{minWidth: "30px"}}>
-                        <HomeIcon />
+                        <HomeIcon sx={{color:"white"}} />
                       </ListItemIcon>
                       <Link href="/" color="#fff">
                         home
@@ -76,7 +76,7 @@ export const Footer = () => {
                     </ListItem>
                     <ListItem>
                       <ListItemIcon sx={{minWidth: "30px"}}>
-                        <InfoIcon />
+                        <InfoIcon sx={{color:"white"}}/>
                       </ListItemIcon>
                       <Link href="/about" color="#fff">
                         about
@@ -84,7 +84,7 @@ export const Footer = () => {
                     </ListItem>
                     <ListItem>
                       <ListItemIcon sx={{minWidth: "30px"}}>
-                        <ContactSupportIcon />
+                        <ContactSupportIcon sx={{color:"white"}}/>
                       </ListItemIcon>
                       <Link href="/contact" color="#fff">
                         contact
@@ -93,9 +93,9 @@ export const Footer = () => {
 
                     <ListItem>
                       <ListItemIcon sx={{minWidth: "30px"}}>
-                        <EmailIcon />
+                        <EmailIcon sx={{color:"white"}}/>
                       </ListItemIcon>
-                      <MailTo label="email"/>
+                      <MailTo label="email" sx={{color:"white"}}/>
                       {/* <Link href="/contact" color="#fff">
                         email
                       </Link> */}

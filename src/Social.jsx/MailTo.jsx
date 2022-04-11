@@ -7,7 +7,7 @@ export const MailTo = ({ label, icon, color, children, ...props }) => {
     if (body) params += `${subject ? "&" : ""}body=${encodeURIComponent(body)}`;
 
     return (
-      <a href={`mailto:${email}${params}`} {...props}>
+      <a href={`mailto:${email}${params}`} {...props} style={{color: {color}}}>
         {label}
       </a>
     );
