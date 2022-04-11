@@ -5,7 +5,7 @@ import eagle from "./eagle.png";
 export function HomeImagesCard() {
   return (
     <>
-      <Grid container sx={{ bgcolor: "#62a9db" }}>
+      <Grid container sx={{ bgcolor: "#e7ebee" }}>
         <Grid item sm={7} sx={{ display: "flex", justifyContent: "flex-end" }}>
           <img
             alt="bldg"
@@ -28,7 +28,7 @@ export function HomeImagesCard() {
         </Grid>
       </Grid>
 
-      <Grid container sx={{ bgcolor: "#d8a76e" }}>
+      <Grid container sx={{ bgcolor:  "#a7bac8" }}>
         <Grid item sm={5} alignSelf="center">
           <Typography
             variant="h5"

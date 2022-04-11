@@ -20,7 +20,7 @@ export function Meetings() {
 
   console.log(meet);
   return (
-    <Grid container sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+    <Grid container sx={{ display: "flex", justifyContent: "center", alignItems: "center", pb: 4 }}>
       <Grid item sm={10} >
         {/* <Container> */}
           <Card sx={{p: 4, }}>
