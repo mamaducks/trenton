@@ -111,8 +111,8 @@ export const ResponsiveAppBar = () => {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Link href="/">
-            <img src={TMAL} alt="logo" width="100" height="auto" />
+          <Link href="/" sx={{pl: 5}}>
+            <img src={TMAL} alt="logo" width="100" height="auto"  />
           </Link>
           <Box sx={{ flexGrow: 1, pl: 7 }}>
             <Stack direction="row" gap={8}>
