@@ -23,7 +23,7 @@ export function HomeImagesCard() {
         </Grid>
 
         <Grid item sm={5} alignSelf="center">
-          <Typography textAlign="center" variant="h4">
+          <Typography textAlign="center" variant="h4" color="text.primary">
             TRENTON METRO AREA LOCAL
           </Typography>
         </Grid>
@@ -31,7 +31,7 @@ export function HomeImagesCard() {
 
       <Grid container sx={{ bgcolor: "#d8a76e" }}>
         <Grid item sm={5} alignSelf="center">
-          <Typography variant="h5" px={20} maxWidth={580} textAlign="start">
+          <Typography variant="h5" px={20} maxWidth={580} textAlign="start" color="text.primary">
             The Trenton Metro Area Local represents over 500 members in the
             Clerk, Maintenance and Motor Vehicle Crafts in the Trenton New
             Jersey area. The majority of our members are employed at the Trenton

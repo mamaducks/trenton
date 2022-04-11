@@ -7,6 +7,7 @@ import {
   Menu,
   MenuItem,
   ListItemIcon,
+  Stack,
 } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import { useState } from "react";
@@ -20,6 +21,7 @@ import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Tooltip from "@mui/material/Tooltip";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import TMAL from "./logoTMAL.svg";
 
 // import routes from '../App/Routes';
 
@@ -80,47 +82,28 @@ const national = [
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 export const ResponsiveAppBar = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const [anchorElAbout, setAnchorElAbout] = React.useState(null);
   const [anchorElNation, setAnchorElNation] = React.useState(null);
   const [anchorElMember, setAnchorElMember] = React.useState(null);
   const [anchorElByLaws, setAnchorElByLaws] = React.useState(null);
 
-  const [anchorEl, setAnchorEl] = useState(null);
-
-  const handleMenu = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  const handleOpenNationMenu = (event) => {
+  const handleOpenNation = (event) => {
     setAnchorElNation(event.currentTarget);
   };
 
-  const handleOpenMemberMenu = (event) => {
+  const handleOpenMember = (event) => {
     setAnchorElMember(event.currentTarget);
   };
 
-  const handleOpenByLawsMenu = (event) => {
+  const handleOpenByLaws = (event) => {
     setAnchorElByLaws(event.currentTarget);
   };
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleOpenAboutMenu = (event) => {
-    setAnchorElAbout(event.currentTarget);
-  };
-
-  const handleCloseNationMenu = () => {
+  const handleCloseNation = () => {
     setAnchorElNation(null);
   };
 
@@ -128,7 +111,11 @@ export const ResponsiveAppBar = () => {
     setAnchorElUser(null);
   };
 
-  const handleCloseMembertMenu = () => {
+  const handleCloseMember = () => {
+    setAnchorElMember(null);
+  };
+
+  const handleCloseByLaws = () => {
     setAnchorElMember(null);
   };
 
@@ -136,141 +123,141 @@ export const ResponsiveAppBar = () => {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
-          >
-            LOGO
-          </Typography>
-          <Button href="/" sx={{ p: 0, color: "white" }}>
-            Logo
-          </Button>
-          <Box sx={{ flexGrow: 0 }}>
-            <Button href="/about" sx={{ p: 0, color: "white" }}>
-              About
-            </Button>
-            <Button
-              sx={{ p: 0, color: "white" }}
-              onClick={handleOpenNationMenu}
-              endIcon={<KeyboardArrowDownIcon />}
-            >
-              National
-            </Button>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElNation}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElNation)}
-              onClose={handleCloseNationMenu}
-            >
-              {national.map((item) => (
-                <MenuItem key={item.id}>
-                  <ListItemIcon>
-                    <ChevronRightIcon />
-                  </ListItemIcon>
-                  <Link href={item.link} target="_blank">
-                    {item.label}
-                  </Link>
-                </MenuItem>
-              ))}
-            </Menu>
+          <Link href="/">
+            <img src={TMAL} alt="logo" width="100" height="auto" />
+          </Link>
+          <Box sx={{ flexGrow: 1, pl: 7 }}>
+            <Stack direction="row" gap={8}>
+              <Button href="/about" sx={{ p: 0, color: "white" }}>
+                About
+              </Button>
+              <Button
+                sx={{ p: 0, color: "white" }}
+                onClick={handleOpenNation}
+                endIcon={<KeyboardArrowDownIcon />}
+              >
+                National
+              </Button>
+              <Menu
+                sx={{ mt: "45px" }}
+                id="menu-appbar"
+                anchorEl={anchorElNation}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                open={Boolean(anchorElNation)}
+                onClose={handleCloseNation}
+              >
+                {national.map((item) => (
+                  <MenuItem key={item.id}>
+                    <ListItemIcon>
+                      <ChevronRightIcon />
+                    </ListItemIcon>
+                    <Link href={item.link} target="_blank">
+                      {item.label}
+                    </Link>
+                  </MenuItem>
+                ))}
+              </Menu>
 
-            <Button
-              sx={{ p: 0, color: "white" }}
-              onClick={handleOpenMemberMenu}
-              endIcon={<KeyboardArrowDownIcon />}
-            >
-              Members
-            </Button>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElMember}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElMember)}
-              onClose={handleCloseMembertMenu}
-            >
-              {members.map((item) => (
-                <MenuItem key={item.id}>
-                  <ListItemIcon>
-                    <ChevronRightIcon />
-                  </ListItemIcon>
+              <Button
+                sx={{ p: 0, color: "white" }}
+                onClick={handleOpenMember}
+                endIcon={<KeyboardArrowDownIcon />}
+              >
+                Members
+              </Button>
 
-                  <Link href={item.link} underline="none" color="black">
-                    {item.label}
-                  </Link>
-                </MenuItem>
-              ))}
-            </Menu>
+              <Menu
+                sx={{ mt: "45px" }}
+                id="menu-appbar"
+                anchorEl={anchorElMember}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                open={Boolean(anchorElMember)}
+                onClose={handleCloseMember}
+              >
+                {members.map((item) => (
+                  <MenuItem key={item.id}>
+                    <ListItemIcon>
+                      <ChevronRightIcon />
+                    </ListItemIcon>
 
-            <Button sx={{ p: 0, color: "white" }} href="/contact">
-              Contact
-            </Button>
+                    <Link href={item.link} underline="none" color="black">
+                      {item.label}
+                    </Link>
+                  </MenuItem>
+                ))}
+              </Menu>
 
-            <Button sx={{ p: 0, color: "white" }} href="/resources/stewards">
-              Stewards Corner
-            </Button>
+              <Button sx={{ p: 0, color: "white" }} href="/resources/stewards">
+                Stewards Corner
+              </Button>
+              <Button sx={{ p: 0, color: "white" }} href="/contact">
+                Contact
+              </Button>
+            </Stack>
 
             {/* <SearchBox /> */}
-
-            <Button sx={{ p: 0, color: "white" }} href="">
-              login
-            </Button>
-          </Box>
-
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <Button
-              sx={{ p: 0, color: "white" }}
-              onClick={handleOpenByLawsMenu}
-              endIcon={<KeyboardArrowDownIcon />}
-            >
-              bylaws
-            </Button>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElByLaws}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElByLaws)}
-              onClose={handleClose}
-            >
-              <MenuItem key="elect">
-                <Link href="/about/elected">Elected Officials</Link>
-              </MenuItem>
-              <MenuItem key="steward">
-                <Link href="/about/stewards">Stewards</Link>
-              </MenuItem>
-            </Menu>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
+            {/* <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}> */}
+              <Button sx={{ p: 0, color: "white" }} href="">
+                login
+              </Button>
+
+              <Button
+                sx={{ p: 0, color: "white" }}
+                onClick={handleOpenByLaws}
+                endIcon={<KeyboardArrowDownIcon />}
+              >
+                bylaws
+              </Button>
+              <Menu
+                sx={{ mt: "45px" }}
+                id="menu-appbar"
+                anchorEl={anchorElByLaws}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                open={Boolean(anchorElByLaws)}
+                onClose={handleCloseByLaws}
+              >
+                <MenuItem key="jcmi">
+                  <Link href="https://tmal1020.com/jcim-2020/">JCMI 2020</Link>
+                </MenuItem>
+                <MenuItem key="contract">
+                  <Link href="https://tmal1020.com/contract-articles/">Contract Arcticles</Link>
+                </MenuItem>
+                <MenuItem key="state">
+                  <Link href="https://tmal1020.com/state-by-laws/">State Bylaws</Link>
+                </MenuItem>
+                <MenuItem key="local">
+                  <Link href="https://tmal1020.com/local-by-laws-2/">Local Bylaws</Link>
+                </MenuItem>
+              </Menu>
+            {/* </Box> */}
+
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />

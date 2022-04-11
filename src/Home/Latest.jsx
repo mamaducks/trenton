@@ -41,7 +41,7 @@ export function Latest() {
               <ListItem disablePadding>
                 <ListItemText
                   primary={item.title}
-                  primaryTypographyProps={{ fontSize: "large" }}
+                  primaryTypographyProps={{ fontSize: "large", color: "text.secondary" }}
                 />
               </ListItem>
             ))}
@@ -66,21 +66,21 @@ export function Latest() {
                 <ListItem>
                   <ListItemText
                     primary={item.header}
-                    primaryTypographyProps={{ fontSize: "large", fontWeight: "bold", color: "#1e2f4d" }}
+                    primaryTypographyProps={{ fontSize: "large", fontWeight: "bold", color: "text.primary" }}
                   />
                 </ListItem>
                 <ListItem>
                   <ListItemText
                     primary={item.author}
                     secondary={item.date}
-                    primaryTypographyProps={{ fontSize: "large", color: "#1e2f4d", fontWeight: 500 }}
+                    primaryTypographyProps={{ fontSize: "large", color: "text.secondary", fontWeight: 500 }}
                   />
                 </ListItem>
 
                 <ListItem>
                   <ListItemText
                     primary={item?.desc}
-                    primaryTypographyProps={{ fontSize: "large", color: "#1e2f4d" }}
+                    primaryTypographyProps={{ fontSize: "large", color: "text.primary" }}
                   />
                 </ListItem>
               </>

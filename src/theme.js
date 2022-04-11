@@ -17,8 +17,8 @@ const theme = responsiveFontSizes(
         
       },
       text: {
-          primary: "#183884",
-        //   primary: "#1e2f4d",
+          // primary: "#183884",
+          primary: "#333366",
           secondary: "#183884"
       }
       

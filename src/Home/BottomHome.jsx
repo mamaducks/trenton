@@ -34,6 +34,10 @@ export function BodyHome() {
     return (
         <Grid container>
 <Grid item sm={6}>
+  <Card>
+    <CardContent>
+
+   
 <Stack
             direction="row"
             alignItems="center"
@@ -72,12 +76,13 @@ export function BodyHome() {
             at <MailTo label="stevenduckworthtmal@aol.com" /> with your name,
             tour and job title for an invite.
           </Typography>
-
+          </CardContent>
+          </Card>
 </Grid>
-<Grid item sm={6}>
+<Grid item sm={6} display="flex" flexDirection="column" justifyContent="center">
 
 
-      <Card sx={{ minWidth: 400, maxWidth: 600 }}>
+      <Card sx={{ minWidth: 400, maxWidth: 600 }} >
         <CardContent>
           <List>
             <Stack direction="row" alignItems="center">
@@ -117,7 +122,7 @@ export function BodyHome() {
         </CardContent>
       </Card>
 
-      <Card sx={{ minWidth: 400 }}>
+      <Card sx={{ minWidth: 400, maxWidth: 600 }}>
         <CardContent>
           <List>
             <Stack direction="row" alignItems="center">
