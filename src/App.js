@@ -14,7 +14,7 @@ import { About } from "./Pages/About";
 import theme from "./theme";
 import { ThemeProvider } from "@mui/material";
 import { Contact } from "./Pages/Contact";
-import { ChecklistTable } from "./ChecklistTimeLimit";
+import { ChecklistTable } from "./Resources/ChecklistTimeLimit";
 import { LoginForm } from "./Pages/Login";
 
 import {useMediaQuery} from 'react-responsive';
