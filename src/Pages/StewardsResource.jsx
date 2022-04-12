@@ -85,17 +85,10 @@ export const benefits = [
   },
 ];
 
-const checklist = [
-  {
-    linkLabel: "Time Limits Checklist",
-    href: "/resources/stewards/checklist",
-  },
-];
-
 export function ResourceHeader({ title, children }) {
   return (
     <List>
-      <ListItem sx={{pb: 0}}>
+      <ListItem sx={{ pb: 0 }}>
         <ListItemIcon sx={{ minWidth: 10, color: "#1e2f4d" }}>
           <ArticleIcon />
         </ListItemIcon>
@@ -119,11 +112,17 @@ export function ResourceHeader({ title, children }) {
 
 export function ResourceList({ linkLabel, href }) {
   return (
-    <ListItem sx={{maxWidth: 650}}>
+    <ListItem sx={{ maxWidth: 650 }}>
       <ListItemIcon>
         <ChevronRightIcon sx={{ color: "#183884" }} />
       </ListItemIcon>
-      <Link href={href} target="_blank" fontSize="large" color="text.secondary" flexWrap="wrap">
+      <Link
+        href={href}
+        target="_blank"
+        fontSize="large"
+        color="text.secondary"
+        flexWrap="wrap"
+      >
         {linkLabel}
       </Link>
     </ListItem>
@@ -170,9 +169,19 @@ export function StewardsCorner() {
         </ResourceHeader>
 
         <ResourceHeader title="CHECKLISTS">
-          {checklist.map((item) => (
-            <ResourceList linkLabel={item.linkLabel} href={item.href} />
-          ))}
+          <ListItem sx={{ maxWidth: 650 }}>
+            <ListItemIcon>
+              <ChevronRightIcon sx={{ color: "#183884" }} />
+            </ListItemIcon>
+            <Link
+              href="/resources/stewards/checklist"
+              fontSize="large"
+              color="text.secondary"
+              flexWrap="wrap"
+            >
+              Time Limits Checklist
+            </Link>
+          </ListItem>
         </ResourceHeader>
       </Stack>
     </div>

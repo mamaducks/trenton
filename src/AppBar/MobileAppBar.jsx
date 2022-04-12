@@ -2,6 +2,7 @@ import {
   AppBar,
   Box,
   Button,
+  IconButton,
   Link,
   Menu,
   MenuItem,
@@ -11,6 +12,8 @@ import {
 import { ByLaws } from "./ByLaws";
 import { Members } from "./Members";
 import { National } from "./National";
+import MenuIcon from "@mui/icons-material/Menu";
+
 import TMAL from "./logoTMAL.svg";
 
 import { useState } from "react";
@@ -29,12 +32,12 @@ export function MobileAppBar() {
         </Link>
         <Box display="flex" justifyContent="flex-end" flexGrow={1}>
           Search
-          <Button
+          <IconButton
             sx={{ p: 0, color: "white" }}
             onClick={(event) => setAnchorElSmall(event.currentTarget)}
           >
-            small
-          </Button>
+            <MenuIcon />
+          </IconButton>
         </Box>
 
         <Menu

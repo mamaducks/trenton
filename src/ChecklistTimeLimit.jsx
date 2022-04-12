@@ -50,8 +50,8 @@ export function ChecklistTable() {
           <TableHead>
             <TableRow>
               <TableCell align="right">Steps</TableCell>
-              <TableCell align="right">Actions</TableCell>
-              <TableCell align="right">Days of Limitation</TableCell>
+              <TableCell align="right" width="270">Actions</TableCell>
+              <TableCell align="right" width="220">Days of Limitation</TableCell>
               <TableCell align="right">Affected by</TableCell>
             </TableRow>
           </TableHead>
