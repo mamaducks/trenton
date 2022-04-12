@@ -2,7 +2,11 @@ import { Grid, Typography } from "@mui/material";
 import bldg from "./bldg.png";
 import eagle from "./eagle.png";
 
+
 export function HomeImagesCard() {
+
+  
+
   return (
     <>
       <Grid container sx={{ bgcolor: "#e7ebee" }}>
@@ -10,7 +14,7 @@ export function HomeImagesCard() {
           <img
             alt="bldg"
             src={bldg}
-            // width="auto"
+            width="auto"
             // height={460}
             style={{
               // alignSelf: "flex-end",

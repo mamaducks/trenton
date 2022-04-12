@@ -19,7 +19,6 @@ import Tooltip from "@mui/material/Tooltip";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import TMAL from "./logoTMAL.svg";
 
-
 // const tabs = [
 //   { value: "home", link: "/", label: "home" },
 //   { value: "about", link: "/about", label: "about us" },
@@ -75,44 +74,12 @@ export const ResponsiveAppBar = () => {
   const [anchorElMember, setAnchorElMember] = React.useState(null);
   const [anchorElByLaws, setAnchorElByLaws] = React.useState(null);
 
-  const handleOpenNation = (event) => {
-    setAnchorElNation(event.currentTarget);
-  };
-
-  const handleOpenMember = (event) => {
-    setAnchorElMember(event.currentTarget);
-  };
-
-  const handleOpenByLaws = (event) => {
-    setAnchorElByLaws(event.currentTarget);
-  };
-
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNation = () => {
-    setAnchorElNation(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
-  const handleCloseMember = () => {
-    setAnchorElMember(null);
-  };
-
-  const handleCloseByLaws = () => {
-    setAnchorElByLaws(null);
-  };
-
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Link href="/" sx={{pl: 5}}>
-            <img src={TMAL} alt="logo" width="100" height="auto"  />
+          <Link href="/" sx={{ pl: 5 }}>
+            <img src={TMAL} alt="logo" width="100" height="auto" />
           </Link>
           <Box sx={{ flexGrow: 1, pl: 7 }}>
             <Stack direction="row" gap={8}>
@@ -121,7 +88,7 @@ export const ResponsiveAppBar = () => {
               </Button>
               <Button
                 sx={{ p: 0, color: "white" }}
-                onClick={handleOpenNation}
+                onClick={(event) => setAnchorElNation(event.currentTarget)}
                 endIcon={<KeyboardArrowDownIcon />}
               >
                 National
@@ -140,8 +107,7 @@ export const ResponsiveAppBar = () => {
                   horizontal: "right",
                 }}
                 open={Boolean(anchorElNation)}
-                onClose={handleCloseNation}
-              >
+                onClose={() =>  setAnchorElNation(null)}>
                 {national.map((item) => (
                   <MenuItem key={item.id}>
                     <ListItemIcon>
@@ -156,7 +122,7 @@ export const ResponsiveAppBar = () => {
 
               <Button
                 sx={{ p: 0, color: "white" }}
-                onClick={handleOpenMember}
+                onClick={(event) => setAnchorElMember(event.currentTarget)}
                 endIcon={<KeyboardArrowDownIcon />}
               >
                 Members
@@ -176,15 +142,19 @@ export const ResponsiveAppBar = () => {
                   horizontal: "right",
                 }}
                 open={Boolean(anchorElMember)}
-                onClose={handleCloseMember}
-              >
+                onClose={() => setAnchorElMember(null)}>
                 {members.map((item) => (
                   <MenuItem key={item.id}>
                     <ListItemIcon>
                       <ChevronRightIcon />
                     </ListItemIcon>
 
-                    <Link href={item.link} underline="none" color="black">
+                    <Link
+                      href={item.link}
+                      underline="none"
+                      target="_blank"
+                      color="black"
+                    >
                       {item.label}
                     </Link>
                   </MenuItem>
@@ -209,7 +179,7 @@ export const ResponsiveAppBar = () => {
 
             <Button
               sx={{ p: 0, color: "white" }}
-              onClick={handleOpenByLaws}
+              onClick={(event) => setAnchorElByLaws(event.currentTarget)}
               endIcon={<KeyboardArrowDownIcon />}
             >
               bylaws
@@ -228,8 +198,7 @@ export const ResponsiveAppBar = () => {
                 horizontal: "right",
               }}
               open={Boolean(anchorElByLaws)}
-              onClose={handleCloseByLaws}
-            >
+              onClose={() => setAnchorElByLaws(null)}>
               <MenuItem key="jcmi">
                 <Link href="https://tmal1020.com/jcim-2020/" target="_blank">
                   JCMI 2020
@@ -262,7 +231,7 @@ export const ResponsiveAppBar = () => {
             </Menu>
 
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+              <IconButton onClick={(event) => setAnchorElUser(event.currentTarget)} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
@@ -280,10 +249,9 @@ export const ResponsiveAppBar = () => {
                 horizontal: "right",
               }}
               open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
+              onClose={() => setAnchorElUser(null)}>
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <MenuItem key={setting} onClick={() => setAnchorElUser(null)}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}
