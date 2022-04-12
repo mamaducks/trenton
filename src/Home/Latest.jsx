@@ -23,7 +23,7 @@ export function Latest() {
 
   return (
     <Grid container p={5} justifyContent="center" gap={6}>
-      <Card sx={{ minWidth: 400, maxWidth: 640, px: 5 }}>
+      <Card sx={{  maxWidth: 640, px: 5 }}>
         <CardContent>
           <List>
             <Stack direction="row" alignItems="center">
@@ -42,7 +42,9 @@ export function Latest() {
                   primaryTypographyProps={{
                     fontSize: "large",
                     color: "text.secondary",
+                    
                   }}
+                  sx={{flexWrap: "wrap"}}
                 />
               </ListItem>
             ))}
@@ -50,7 +52,7 @@ export function Latest() {
         </CardContent>
       </Card>
 
-      <Card sx={{ minWidth: 400, maxWidth: 640, px: 5 }}>
+      <Card sx={{  maxWidth: 640, px: 5 }}>
         <CardContent>
           <List>
             <Stack direction="row" alignItems="center">

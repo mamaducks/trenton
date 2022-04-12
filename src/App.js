@@ -24,7 +24,7 @@ import { MobileAppBar } from "./AppBar/MobileAppBar";
 export function App() {
 
   const isSmall = useMediaQuery({
-    query: '(max-device-width: 600px)',
+    query: '(max-device-width: 700px)',
   });
 
   return (

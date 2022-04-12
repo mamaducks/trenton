@@ -1,15 +1,4 @@
-import {
-  AppBar,
-  Box,
-  Typography,
-  Grid,
-  Link,
-  List,
-  ListItem,
-  ListItemText,
-  Stack,
-  ListItemIcon,
-} from "@mui/material";
+import { AppBar, Box, Typography, Grid, Link, Stack } from "@mui/material";
 import { useRecoilValue } from "recoil";
 import { MailTo } from "../Social.jsx/MailTo";
 import { contact } from "../state/contact";
@@ -27,8 +16,7 @@ import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
 import FaxIcon from "@mui/icons-material/Fax";
 import { ButtonBase, IconButton } from "@mui/material";
 
-
-export function SocialLinkBroke({ id, link, icon }) {
+export function SocialLink({ id, link, icon }) {
   return (
     <ButtonBase key={id}>
       <IconButton size="large" href={link} sx={{ color: "white" }}>
@@ -40,14 +28,19 @@ export function SocialLinkBroke({ id, link, icon }) {
 
 export const Footer = () => {
   const address = useRecoilValue(contact);
- 
 
   return (
     <>
       <AppBar position="sticky" elevation={0}>
         <Grid container direction="row" justifyContent="center">
           <Grid item sm={4}>
-            <Box textAlign="center" flex="auto" paddingTop="10px" height="100%">
+            <Box
+              textAlign="center"
+              flex="auto"
+              paddingTop="10px"
+              height="100%"
+              m={4}
+            >
               <Typography
                 variant="h6"
                 paddingTop="8px"
@@ -57,22 +50,22 @@ export const Footer = () => {
                 Trenton Metro Area Local
               </Typography>
               <Stack direction="row" justifyContent="center">
-                <SocialLinkBroke
+                <SocialLink
                   id="face"
                   link=""
                   icon={<FacebookIcon fontSize="large" />}
                 />
-                <SocialLinkBroke
+                <SocialLink
                   id="insta"
                   link=""
                   icon={<InstagramIcon fontSize="large" />}
                 />
-                <SocialLinkBroke
+                <SocialLink
                   id="twit"
                   link=""
                   icon={<TwitterIcon fontSize="large" />}
                 />
-                <SocialLinkBroke
+                <SocialLink
                   id="linked"
                   link=""
                   icon={<LinkedInIcon fontSize="large" />}
@@ -88,47 +81,39 @@ export const Footer = () => {
               textAlign="center"
               flex="auto"
               paddingTop="10px"
+              mx={8}
             >
               <Typography variant="h6" paddingTop="8px" paddingBottom="1px">
                 Quick Links
               </Typography>
-              <List sx={{ pt: 0 }}>
-                <ListItem>
-                  <ListItem>
-                    <ListItemIcon sx={{ minWidth: "30px" }}>
-                      <HomeIcon sx={{ color: "white" }} />
-                    </ListItemIcon>
-                    <Link href="/" color="#fff">
-                      home
-                    </Link>
-                  </ListItem>
-                  <ListItem>
-                    <ListItemIcon sx={{ minWidth: "30px" }}>
-                      <ContactSupportIcon sx={{ color: "white" }} />
-                    </ListItemIcon>
-                    <Link href="/contact" color="#fff">
-                      contact
-                    </Link>
-                  </ListItem>
-                </ListItem>
-                <ListItem>
-                  <ListItem>
-                    <ListItemIcon sx={{ minWidth: "30px" }}>
-                      <InfoIcon sx={{ color: "white" }} />
-                    </ListItemIcon>
-                    <Link href="/about" color="#fff">
-                      about
-                    </Link>
-                  </ListItem>
+              <Stack gap={2} p={3} mb={4}>
+                <Stack direction="row" gap={2}>
+                  {" "}
+                  <HomeIcon sx={{ color: "white" }} />{" "}
+                  <Link href="/" color="#fff">
+                    home
+                  </Link>
+                </Stack>
+                <Stack direction="row" gap={2}>
+                  {" "}
+                  <ContactSupportIcon sx={{ color: "white" }} />{" "}
+                  <Link href="/contact" color="#fff">
+                    contact
+                  </Link>
+                </Stack>
 
-                  <ListItem>
-                    <ListItemIcon sx={{ minWidth: "30px" }}>
-                      <EmailIcon sx={{ color: "white" }} />
-                    </ListItemIcon>
-                    <MailTo label="email" sx={{ color: "#ffffff" }} />
-                  </ListItem>
-                </ListItem>
-              </List>
+                <Stack direction="row" gap={2}>
+                  <InfoIcon sx={{ color: "white" }} />{" "}
+                  <Link href="/about" color="#fff">
+                    about
+                  </Link>
+                </Stack>
+
+                <Stack direction="row" gap={2}>
+                  <EmailIcon sx={{ color: "white" }} />{" "}
+                  <MailTo label="email" sx={{ color: "#ffffff" }} />
+                </Stack>
+              </Stack>
             </Box>
           </Grid>
           <Grid item sm={4}>
@@ -148,33 +133,28 @@ export const Footer = () => {
               >
                 Get In Touch{" "}
               </Typography>
-              <List sx={{ textAlign: "center", pt: 0 }}>
-                <ListItem>
-                  <ListItemIcon sx={{ minWidth: "32px" }}>
-                    <LocationOnIcon sx={{ color: "white" }} />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={
-                      <div style={{ textAlign: "start" }}>
-                        <div>{address.address}</div>
-                        <div>{address.city}</div>
-                      </div>
-                    }
-                    primaryTypographyProps={{ textAlign: "center" }}
-                  ></ListItemText>
-                </ListItem>
-                <ListItem>
-                  <ListItemIcon sx={{ minWidth: "30px" }}>
-                    <PhoneIphoneIcon sx={{ color: "white" }} />
-                  </ListItemIcon>
-                  <ListItemText primary={address.phone} />
 
-                  <ListItemIcon sx={{ minWidth: "30px", pl: 6 }}>
-                    <FaxIcon sx={{ color: "white" }} />
-                  </ListItemIcon>
-                  <ListItemText primary={address.fax} />
-                </ListItem>
-              </List>
+              <Stack direction="row" gap={2} pt={3}>
+                <LocationOnIcon sx={{ color: "white" }} />
+                <Typography>
+                  <div style={{ textAlign: "start" }}>
+                    <div>{address.address}</div>
+                    <div>{address.city}</div>
+                  </div>{" "}
+                </Typography>
+              </Stack>
+
+              <Stack flexDirection="row" flexWrap="wrap" gap={3} pt={3}>
+                <Stack direction="row" gap={2}>
+                  <PhoneIphoneIcon sx={{ color: "white" }} />
+                  <Typography>{address.phone} </Typography>
+                </Stack>
+
+                <Stack direction="row" gap={2}>
+                  <FaxIcon sx={{ color: "white" }} />
+                  <Typography>{address.fax}</Typography>
+                </Stack>
+              </Stack>
             </Box>
           </Grid>
         </Grid>
