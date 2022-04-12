@@ -1,10 +1,5 @@
 export const members = [
     {
-      id: "forms",
-      label: "Forms and links",
-      link: "/resources",
-    },
-    {
       id: "volunteer",
       label: "Voluntary Benefits Plan",
       link: "https://www.voluntarybenefitsplan.com/",
