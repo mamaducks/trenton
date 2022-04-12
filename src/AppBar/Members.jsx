@@ -1,37 +1,10 @@
 import { Button, Link, ListItemIcon, Menu, MenuItem } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import { members } from "./menus";
 
 import { useState } from "react";
 
-const members = [
-  {
-    id: "forms",
-    label: "Forms and links",
-    link: "/resources",
-  },
-  {
-    id: "volunteer",
-    label: "Voluntary Benefits Plan",
-    link: "https://www.voluntarybenefitsplan.com/",
-  },
-  {
-    id: "scholarship",
-    label: "APWU Scholarship",
-    link: "https://www.apwu.org/scholarship-programs",
-  },
-  {
-    id: "auxillary",
-    label: "APWU Auxillary",
-    link: "https://www.apwuauxiliary.org/",
-  },
-  { id: "health", label: "APWU Health Plan", link: "https://www.apwuhp.com/" },
-  {
-    id: "benefits",
-    label: "APWU Accident Benefits",
-    link: "https://apw-aba.org/",
-  },
-];
 
 export const Members = () => {
   const [anchorElMember, setAnchorElMember] = useState(null);
@@ -64,6 +37,20 @@ export const Members = () => {
         open={Boolean(anchorElMember)}
         onClose={() => setAnchorElMember(null)}
       >
+           <MenuItem key="forms">
+            <ListItemIcon>
+              <ChevronRightIcon />
+            </ListItemIcon>
+
+            <Link
+              href="/resources"
+              underline="none"
+              target="_blank"
+              color="black"
+            >
+              Forms and Links
+            </Link>
+          </MenuItem>
         {members.map((item) => (
           <MenuItem key={item.id}>
             <ListItemIcon>

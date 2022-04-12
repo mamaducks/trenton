@@ -1,18 +1,9 @@
 import { Button, Link, ListItemIcon, Menu, MenuItem } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import { national } from "./menus"
 
 import { useState } from "react";
-
-const national = [
-  { id: "apwu", label: "APWU", link: "https://www.apwu.org/" },
-  {
-    id: "manuals",
-    label: "Handbooks and Manuals",
-    link: "https://www.apwu.org/usps-handbooks-and-manuals",
-  },
-  { id: "press", label: "Postal Press", link: "http://apwupostalpress.org/" },
-];
 
 export const National =() => {
   const [anchorElNation, setAnchorElNation] = useState(null);
