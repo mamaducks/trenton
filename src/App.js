@@ -7,7 +7,7 @@ import { RecoilRoot } from "recoil";
 import { Footer } from "./Footer/Footer";
 import { ElectedCards } from "./InfoCards/Elected";
 import { StewardCards } from "./InfoCards/Stewards";
-import { ResponsiveAppBar } from "./AppBar/TrentonAppBar";
+import { FullAppBar } from "./AppBar/TrentonAppBar";
 import { Resource } from "./Pages/Resource";
 import { StewardsCorner } from "./Pages/StewardsResource";
 import { About } from "./Pages/About";
@@ -17,13 +17,22 @@ import { Contact } from "./Pages/Contact";
 import { ChecklistTable } from "./ChecklistTimeLimit";
 import { LoginForm } from "./Pages/Login";
 
+import {useMediaQuery} from 'react-responsive';
+import { MobileAppBar } from "./AppBar/MobileAppBar";
+
+
 export function App() {
+
+  const isSmall = useMediaQuery({
+    query: '(max-device-width: 600px)',
+  });
+
   return (
     <ThemeProvider theme={theme}>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <BrowserRouter>
           <RecoilRoot>
-            <ResponsiveAppBar />
+           {!!isSmall ? <MobileAppBar /> : <FullAppBar />} 
             <Routes>
               <Route path="/contact" element={<Contact />} />
               <Route path="/resources" element={<Resource />} />

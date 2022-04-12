@@ -1,4 +1,3 @@
-// import {useMediaQuery} from 'react-responsive';
 import {
   AppBar,
   Box,
@@ -28,8 +27,6 @@ import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
 import FaxIcon from "@mui/icons-material/Fax";
 import { ButtonBase, IconButton } from "@mui/material";
 
-// import {FooterButtons} from './FooterButtons';
-// import {FooterRight} from './FooterRight';
 
 export function SocialLinkBroke({ id, link, icon }) {
   return (
@@ -43,14 +40,12 @@ export function SocialLinkBroke({ id, link, icon }) {
 
 export const Footer = () => {
   const address = useRecoilValue(contact);
-  //   const isWide = useMediaQuery({
-  //     query: '(min-device-width: 700px)',
-  //   });
+ 
 
   return (
     <>
       <AppBar position="sticky" elevation={0}>
-        <Grid container direction="row">
+        <Grid container direction="row" justifyContent="center">
           <Grid item sm={4}>
             <Box textAlign="center" flex="auto" paddingTop="10px" height="100%">
               <Typography

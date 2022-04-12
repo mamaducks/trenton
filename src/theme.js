@@ -48,6 +48,15 @@ const theme = responsiveFontSizes(
     //       margin: "dense",
     //     },
     //   },
+MuiButton: {
+  styleOverrides: {
+     endIcon: {
+marginLeft: "1px"
+  }
+  }
+ 
+},
+
    MuiDivider: {
 styleOverrides: {
     root: {
