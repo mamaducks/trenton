@@ -14,7 +14,7 @@ export function HomeImagesCard() {
         }}
       >
         <Grid item sm={5} alignSelf="center">
-          <Typography textAlign="center" variant="h4" color="text.primary">
+          <Typography textAlign="center" variant="h4" color="text.primary" py={3}>
             TRENTON METRO AREA LOCAL
           </Typography>
         </Grid>
@@ -34,9 +34,11 @@ export function HomeImagesCard() {
           <Typography
             variant="h5"
             px={20}
+            py={5}
             maxWidth={580}
             textAlign="start"
             color="text.primary"
+
           >
             The Trenton Metro Area Local represents over 500 members in the
             Clerk, Maintenance and Motor Vehicle Crafts in the Trenton New
