@@ -5,18 +5,16 @@ import { members } from "./menus";
 
 import { useState } from "react";
 
-
 export const Members = () => {
   const [anchorElMember, setAnchorElMember] = useState(null);
 
   return (
     <>
       <Button
-    //   size="small"
-        sx={{ p: 0, color: "white", }}
+        //   size="small"
+        sx={{ p: 0, color: "white" }}
         onClick={(event) => setAnchorElMember(event.currentTarget)}
-        endIcon={<KeyboardArrowDownIcon  />}
-        
+        endIcon={<KeyboardArrowDownIcon />}
       >
         Members
       </Button>
@@ -37,20 +35,20 @@ export const Members = () => {
         open={Boolean(anchorElMember)}
         onClose={() => setAnchorElMember(null)}
       >
-           <MenuItem key="forms">
-            <ListItemIcon>
-              <ChevronRightIcon />
-            </ListItemIcon>
+        <MenuItem key="forms">
+          <ListItemIcon>
+            <ChevronRightIcon />
+          </ListItemIcon>
 
-            <Link
-              href="/resources"
-              underline="none"
-              target="_blank"
-              color="black"
-            >
-              Forms and Links
-            </Link>
-          </MenuItem>
+          <Link
+            href="/resources"
+            underline="none"
+            target="_blank"
+            color="black"
+          >
+            Forms and Links
+          </Link>
+        </MenuItem>
         {members.map((item) => (
           <MenuItem key={item.id}>
             <ListItemIcon>

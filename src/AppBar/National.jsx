@@ -1,11 +1,11 @@
 import { Button, Link, ListItemIcon, Menu, MenuItem } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import { national } from "./menus"
+import { national } from "./menus";
 
 import { useState } from "react";
 
-export const National =() => {
+export const National = () => {
   const [anchorElNation, setAnchorElNation] = useState(null);
 
   return (
@@ -46,4 +46,4 @@ export const National =() => {
       </Menu>
     </>
   );
-}
+};

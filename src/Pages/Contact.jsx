@@ -24,7 +24,6 @@ export function Contact() {
         <Divider />
 
         <ContactForm />
-        <Icon></Icon>
       </Container>
     </>
   );

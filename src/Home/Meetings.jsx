@@ -22,7 +22,6 @@ export function Meetings() {
   return (
     <Grid container sx={{ display: "flex", justifyContent: "center", alignItems: "center", pb: 4 }}>
       <Grid item sm={10} >
-        {/* <Container> */}
           <Card sx={{p: 4, }}>
             <CardContent>
           <Stack
@@ -65,7 +64,6 @@ export function Meetings() {
           </Typography>
           </CardContent>
           </Card>
-        {/* </Container> */}
       </Grid>
     </Grid>
   );

@@ -1,35 +1,34 @@
-import SearchIcon from '@mui/icons-material/Search';
-import InputBase from '@mui/material/InputBase';
-import { makeStyles } from '@mui/styles';
+import SearchIcon from "@mui/icons-material/Search";
+import InputBase from "@mui/material/InputBase";
+import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
-    search: {
-    position: 'relative',
+  search: {
+    position: "relative",
     // marginRight: theme.spacing(2),
     marginLeft: 0,
-    width: '100%',
+    width: "100%",
   },
   searchIconWrapper: {
     // padding: theme.spacing(0, 2),
-    height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center'
+    height: "100%",
+    position: "absolute",
+    pointerEvents: "none",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   },
   inputBase: {
-    color: 'inherit',
-    '& .MuiInputBase-input': {
+    color: "inherit",
+    "& .MuiInputBase-input": {
       // padding: theme.spacing(1, 1, 1, 0),
       // vertical padding + font size from searchIcon
       // paddingLeft: `calc(1em + ${theme.spacing(4)})`,
       // transition: theme.transitions.create('width'),
-      width: '100%',
+      width: "100%",
+    },
   },
-},
 });
-
 
 // const Search = styled('div')(({ theme }) => ({
 //     position: 'relative',
@@ -46,7 +45,7 @@ const useStyles = makeStyles({
 //       width: 'auto',
 //     },
 //   }));
-  
+
 //   const SearchIconWrapper = styled('div')(({ theme }) => ({
 //     padding: theme.spacing(0, 2),
 //     height: '100%',
@@ -56,7 +55,7 @@ const useStyles = makeStyles({
 //     alignItems: 'center',
 //     justifyContent: 'center',
 //   }));
-  
+
 //   const StyledInputBase = styled(InputBase)(({ theme }) => ({
 //     color: 'inherit',
 //     '& .MuiInputBase-input': {
@@ -71,18 +70,18 @@ const useStyles = makeStyles({
 //     },
 //   }));
 
-  export function SearchBox() {
-    const classes = useStyles();
+export function SearchBox() {
+  const classes = useStyles();
 
-      return (
-        <div className={classes.search} >
-        <div className={classes.searchIconWrapper}>
-          <SearchIcon />
-        </div>
-        < InputBase
-        placeholder="Search…"
-        inputProps={{ 'aria-label': 'search' }}/>
-        
+  return (
+    <div className={classes.search}>
+      <div className={classes.searchIconWrapper}>
+        <SearchIcon />
       </div>
-      )
-  }
+      <InputBase
+        placeholder="Search…"
+        inputProps={{ "aria-label": "search" }}
+      />
+    </div>
+  );
+}

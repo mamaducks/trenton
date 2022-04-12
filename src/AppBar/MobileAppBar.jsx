@@ -56,8 +56,7 @@ export function MobileAppBar() {
           open={Boolean(anchorElSmall)}
           onClose={() => setAnchorElSmall(null)}
         >
-          {/* <Paper sx={{ backgroundColor: "#333366" }}> */}
-          <MenuList sx={{ backgroundColor: "#333366" }}>
+          <MenuList>
             <MenuItem>
               <Button href="/about" sx={{ p: 0, color: "white" }}>
                 About
@@ -83,7 +82,6 @@ export function MobileAppBar() {
               <ByLaws />
             </MenuItem>
           </MenuList>
-          {/* </Paper> */}
         </Menu>
       </Toolbar>
     </AppBar>

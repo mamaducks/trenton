@@ -21,7 +21,6 @@ import { ByLaws } from "./ByLaws";
 export const FullAppBar = () => {
   return (
     <AppBar position="static">
-      {/* <Container maxWidth="xl"> */}
       <Toolbar disableGutters sx={{ overflow: "hidden" }}>
         <Link href="/" sx={{ pl: 5 }}>
           <img src={TMAL} alt="logo" width="auto" height="auto" />
@@ -82,7 +81,6 @@ export const FullAppBar = () => {
             </Menu> */}
         </Box>
       </Toolbar>
-      {/* </Container> */}
     </AppBar>
   );
 };
